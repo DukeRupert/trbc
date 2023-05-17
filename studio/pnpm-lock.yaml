@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@sanity/icons':
+    specifier: ^2.3.1
+    version: 2.3.1(react@18.2.0)
   '@sanity/vision':
     specifier: ^3.0.0
     version: 3.0.0(@babel/runtime@7.21.5)(@codemirror/lint@6.2.1)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.2)(@sanity/client@3.4.1)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(rxjs@6.6.7)(styled-components@5.2.0)

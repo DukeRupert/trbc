@@ -11,11 +11,13 @@
 	<div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
 		<div class="px-6 pt-10 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-48 lg:pb-56 xl:col-span-6">
 			<div class="mx-auto max-w-2xl lg:mx-0">
-				<img
-					class="h-11"
-					src={urlFor(value?.logo?.asset).height(80).format('webp').url()}
-					alt="Your Company"
-				/>
+				{#if value?.logo}
+					<img
+						class="h-24 mx-auto md:mx-0"
+						src={urlFor(value?.logo?.asset).height(200).format('webp').url()}
+						alt="The Ridge Bible Church logo"
+					/>
+				{/if}
 				{#if value?.isHighlight}
 					<div class="hidden sm:mt-32 sm:flex lg:mt-16">
 						<div
@@ -31,10 +33,10 @@
 						</div>
 					</div>
 				{/if}
-				<h1 class="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
+				<h1 class="h1 mt-10 font-bold tracking-tight md:text-4xl">
 					{value?.heading}
 				</h1>
-				<p class="mt-6 text-lg leading-8 text-gray-600">
+				<p class="mt-6 md:text-lg">
 					{value?.subtext}
 				</p>
 				{#if value?.isPrimaryAction || value?.isSecondaryAction}

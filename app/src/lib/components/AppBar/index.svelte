@@ -29,16 +29,16 @@
 <div class="relative bg-white">
 	<div class="flex items-center justify-between p-6 md:justify-start md:space-x-10">
 		<div class="flex justify-start lg:w-0 lg:flex-1">
-			{#if $page?.route?.id !== '/(website)'}
-				<a href="/">
-					<span class="sr-only">Your Company</span>
-					<img
-						class="h-8 w-auto sm:h-10"
-						src={urlFor(logo?.asset).height(80).format('webp').url()}
-						alt="Your Company"
-					/>
-				</a>
-			{/if}
+			<!-- {#if $page?.route?.id !== '/(website)'} -->
+			<a href="/">
+				<span class="sr-only">Your Company</span>
+				<img
+					class="h-8 w-auto sm:h-10"
+					src={urlFor(logo?.asset).height(80).format('webp').url()}
+					alt="Your Company"
+				/>
+			</a>
+			<!-- {/if} -->
 		</div>
 		<div class="-my-2 -mr-2 md:hidden">
 			<button

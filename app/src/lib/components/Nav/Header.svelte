@@ -19,7 +19,7 @@
 	}
 </script>
 
-<AppBar>
+<AppBar background="bg-surface-50-900-token">
 	<svelte:fragment slot="lead">
 		{#if $page.route.id !== '/'}
 			<a href="/"
@@ -53,9 +53,8 @@
 				href="https://theridgebiblechurch.breezechms.com/give/online">Give</a
 			>
 
-			<a
-				class="btn variant-outline-secondary"
-				href="https://theridgebiblechurch.breezechms.com/login">Sign In</a
+			<a class="btn variant-outline-primary" href="https://theridgebiblechurch.breezechms.com/login"
+				>Sign In</a
 			>
 		</div>
 	</nav>

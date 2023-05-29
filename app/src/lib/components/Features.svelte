@@ -7,16 +7,16 @@
 	const { value } = portableText;
 </script>
 
-<div id="services" class="bg-white py-24 sm:py-32">
+<div id="services" class="bg-white py-16 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
 			<h2 class="unstyled text-lg font-semibold leading-8 tracking-tight text-primary-600">
 				{value?.heading}
 			</h2>
-			<p class="unstyled mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+			<p class="h2 font-bold tracking-tight">
 				{value?.title}
 			</p>
-			<p class="unstyled mt-6 text-lg leading-8 text-gray-600">
+			<p class="mt-6">
 				{value?.tagline}
 			</p>
 		</div>

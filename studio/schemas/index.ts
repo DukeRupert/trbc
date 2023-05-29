@@ -17,6 +17,8 @@ import review from './objects/review'
 import pageHeader from './objects/pageHeader'
 import posts from './objects/posts'
 import cta from './objects/cta'
+import media from './objects/media'
+import gallery from './objects/gallery'
 
 export const schemaTypes = [
   page,
@@ -38,4 +40,6 @@ export const schemaTypes = [
   pageHeader,
   posts,
   cta,
+  media,
+  gallery,
 ]

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MediaGallery from '$lib/components/MediaGallery.svelte';
 	import type { PageData } from './$types';
 	import type { InputValue } from '@portabletext/svelte/ptTypes';
 	import Hero from '$lib/components/Hero.svelte';
@@ -6,7 +7,7 @@
 	import Team from '$lib/components/Team.svelte';
 	import Reviews from '$lib/components/Reviews/index.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
-	import Cta from '$lib/components/Cta.svelte';
+	import Cta from '$lib/components/cta/SimpleCenteredOnBrand.svelte';
 	import Posts from '$lib/components/Posts/Posts.svelte';
 	import { PortableText } from '@portabletext/svelte';
 	import Seo from '$lib/components/Seo.svelte';
@@ -30,7 +31,8 @@
 			reviews: Reviews,
 			pageHeader: PageHeader,
 			posts: Posts,
-			cta: Cta
+			cta: Cta,
+			gallery: MediaGallery
 		}
 	}}
 />

@@ -69,6 +69,7 @@ export default defineType({
 				{ type: 'reviews' },
 				{ type: 'posts' },
 				{ type: 'cta' },
+				{ type: 'gallery'}
 				// etc...
 			]
 		}),

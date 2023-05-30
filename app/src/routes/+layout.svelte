@@ -14,9 +14,11 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
 	import Header from '$lib/components/Nav/Header.svelte';
 	import Drawer from '$lib/components/Nav/Drawer.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
 	export let data: LayoutServerData;
+	console.log(data);
 </script>
 
 <div class="parent" id="foundation">
@@ -29,6 +31,13 @@
 	<div class="right-side">
 		<Drawer />
 	</div>
+	<footer>
+		<Footer
+			business={data?.siteMetaData?.business}
+			socialMedia={data?.siteMetaData?.socialMedia}
+			logo={data?.siteMetaData?.logo}
+		/>
+	</footer>
 </div>
 
 <style>

@@ -53,7 +53,7 @@
 				href="https://theridgebiblechurch.breezechms.com/give/online">Give</a
 			>
 
-			<a class="btn variant-outline-primary" href="https://theridgebiblechurch.breezechms.com/login"
+			<a class="btn variant-ringed-primary" href="https://theridgebiblechurch.breezechms.com/login"
 				>Sign In</a
 			>
 		</div>

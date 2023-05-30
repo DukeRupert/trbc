@@ -6,7 +6,8 @@ export interface MediaGallery {
 	features: null;
 	defaultTag: null;
 	searchTags: null;
-	description: string;
+	text: string;
+	subtext: string;
 	title: string;
 	gallery: Gallery[];
 }

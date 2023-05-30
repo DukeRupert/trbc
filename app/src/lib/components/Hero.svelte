@@ -33,10 +33,10 @@
 						</div>
 					</div>
 				{/if}
-				<h1 class="h1 mt-10 font-bold tracking-tight md:text-4xl">
+				<h1 class="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
 					{value?.heading}
 				</h1>
-				<p class="mt-6 md:text-lg">
+				<p class="mt-6 text-lg leading-8 text-gray-600">
 					{value?.subtext}
 				</p>
 				{#if value?.isPrimaryAction || value?.isSecondaryAction}

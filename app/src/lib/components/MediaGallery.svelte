@@ -19,9 +19,9 @@
 				<div class="group block">
 					<div
 						aria-hidden="true"
-						class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
+						class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5"
 					>
-						<SanityImage image={item.image} class="h-full w-full object-cover object-center" />
+						<SanityImage image={item.image} height="384" width="256" class="aspect-[3/2] w-full rounded-2xl object-cover"/>
 					</div>
 					<h3 class="mt-4 text-base font-semibold text-gray-900">{item?.title ?? ''}</h3>
 					<p class="mt-2 text-sm text-gray-500">

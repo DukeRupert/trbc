@@ -10,7 +10,7 @@
 <div id="services" class="bg-white py-16 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<h2 class="unstyled text-lg font-semibold leading-8 tracking-tight text-primary-600">
+			<h2 class="text-lg font-semibold leading-8 tracking-tight text-primary-600">
 				{value?.heading}
 			</h2>
 			<p class="h2 font-bold tracking-tight">
@@ -55,7 +55,7 @@
 										alt={feature.image.alt}
 										height="400"
 										width="600"
-										class="h-32 w-full h-full object-cover border border-gray-300 bg-white text-gray-300 sm:w-32 rounded-md"
+										class="w-full h-full object-contain border border-gray-300 bg-white text-gray-300 sm:w-32 rounded-md"
 									/>
 								</div>
 								<div>

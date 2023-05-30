@@ -20,11 +20,11 @@
 	<div class="absolute inset-0">
 		<div class="absolute inset-y-0 left-0 w-1/2" />
 	</div>
-	<div class="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
-		<div class="py-16 lg:col-span-2 lg:py-24">
+	<div class="relative mx-auto max-w-7xl px-6 py-16 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-5">
+		<div class="lg:col-span-2">
 			<div class="mx-auto max-w-lg">
-				<h2>Come join us!</h2>
-				<p>We meet weekly and you are always welcome.</p>
+				<h2 class="h2">Contact Us</h2>
+				<p>We would be happy to answer any questions you may have or listen if you have a need that we may be able to address.</p>
 				<dl class="mt-8 text-base">
 					<div class="mt-6">
 						<dt class="sr-only">Postal address</dt>
@@ -46,7 +46,7 @@
 									d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
 								/></svg
 							><a href="https://goo.gl/maps/atKvzA6CZgkVAtTP8">
-								<span class="ml-3">10609 234th St E, Graham, WA 98838</span>
+								<span class="anchor ml-3">10609 234th St E, Graham, WA 98838</span>
 							</a>
 						</dd>
 					</div>
@@ -69,7 +69,7 @@
 									d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
 								/>
 							</svg>
-							<a {href} class="ml-3">{phone}</a>
+							<a {href} class="anchor ml-3">{phone}</a>
 						</dd>
 					</div>
 				</dl>
@@ -79,14 +79,14 @@
 			<div class="mx-auto max-w-lg lg:max-w-none">
 				<form action="" method="POST" class="grid grid-cols-1 gap-y-6" use:enhance>
 					<div>
-						<label for="name" class="sr-only">Full name</label>
+						<label for="name" class="sr-only">Name</label>
 						<input
 							type="text"
 							name="name"
 							id="name"
 							autocomplete="name"
 							class="block w-full rounded-md py-3 px-4"
-							placeholder="Full name"
+							placeholder="Name"
 							required
 						/>
 					</div>
@@ -125,7 +125,7 @@
 						/>
 					</div>
 					<div>
-						<button type="submit" class="btn btn-filled-primary">Submit</button>
+						<button type="submit" class="btn variant-filled-primary">Submit</button>
 					</div>
 				</form>
 			</div>

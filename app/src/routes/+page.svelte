@@ -1,4 +1,5 @@
 <script lang="ts">
+	import OurFamily from '$lib/components/OurFamily.svelte';
 	import MediaGallery from '$lib/components/MediaGallery.svelte';
 	import type { PageData } from './$types';
 	import type { InputValue } from '@portabletext/svelte/ptTypes';
@@ -32,7 +33,8 @@
 			pageHeader: PageHeader,
 			posts: Posts,
 			cta: Cta,
-			gallery: MediaGallery
+			gallery: OurFamily
 		}
 	}}
 />
+<ContactForm />

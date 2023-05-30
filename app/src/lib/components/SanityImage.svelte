@@ -3,7 +3,8 @@
 	import type { Image } from '$lib/sanity/types/image';
 	import { onMount } from 'svelte';
 	export let image: Image;
-	export let maxWidth = 1200;
+	export let height = "200"
+	export let width = "200"
 	export let alt = '';
 	let className: string;
 	export { className as class };
@@ -35,9 +36,11 @@
 	<img
 		class={className ? className : 'w-full h-full object-center object-cover sm:w-full sm:h-full'}
 		loading="lazy"
-		src={urlFor(image.asset).width(maxWidth).fit('fillmax').url()}
+		{height}
+		{width}
+		src={urlFor(image.asset).width(width).fit('fillmax').url()}
 		{alt}
-		style="aspect-ratio: {aevergreentio}; opacity: {loaded
+		style="opacity: {loaded
 			? 1
 			: 0}; transition: .3s cubic-bezier(0.11, 0, 0.5, 0) opacity;"
 		on:load={onLoad}

@@ -20,11 +20,16 @@
 	<div class="absolute inset-0">
 		<div class="absolute inset-y-0 left-0 w-1/2" />
 	</div>
-	<div class="relative mx-auto max-w-7xl px-6 py-16 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-5">
+	<div
+		class="relative mx-auto max-w-7xl px-6 py-16 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-5"
+	>
 		<div class="lg:col-span-2">
 			<div class="mx-auto max-w-lg">
-				<h2 class="h2">Contact Us</h2>
-				<p>We would be happy to answer any questions you may have or listen if you have a need that we may be able to address.</p>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>
+				<p class="mt-6 text-xl leading-8 text-gray-600">
+					We would be happy to answer any questions you may have or listen if you have a need that
+					we may be able to address.
+				</p>
 				<dl class="mt-8 text-base">
 					<div class="mt-6">
 						<dt class="sr-only">Postal address</dt>

@@ -21,15 +21,13 @@
 
 <AppBar background="bg-surface-50-900-token">
 	<svelte:fragment slot="lead">
-		{#if $page.route.id !== '/'}
-			<a href="/"
-				><img
-					class="h-8"
-					src={urlFor(logo).height(80).format('webp').url()}
-					alt="The Ridge Bible Church logo"
-				/></a
-			>
-		{/if}
+		<a href="/"
+			><img
+				class="h-8 {$page.route.id !== '/' ? 'visible' : 'invisible'}"
+				src={urlFor(logo).height(80).format('webp').url()}
+				alt="The Ridge Bible Church logo"
+			/></a
+		>
 	</svelte:fragment>
 
 	<nav class="relative hidden md:flex justify-between">

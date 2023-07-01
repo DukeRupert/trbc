@@ -11,19 +11,8 @@
 
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />
 
-<div class="relative bg-white">
-	<div class="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end">
-		<div
-			class="lg:flex lg:w-1/2 lg:shrink lg:grow-0 xl:absolute xl:inset-y-0 xl:right-1/2 xl:w-1/2"
-		>
-			<div class="relative h-80 lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0">
-				<img
-					class="absolute inset-0 h-full w-full bg-gray-50 object-cover"
-					src={urlFor(data?.page?.seo?.mainImage?.asset).height(1400).format('webp').toString()}
-					alt={data?.page?.seo?.mainImage?.alt ?? ''}
-				/>
-			</div>
-		</div>
+<div class="bg-white pt-32 lg:px-8">
+	<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
 		<div class="px-6 lg:contents">
 			<div
 				class="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20 lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2"
@@ -203,6 +192,6 @@
 				</div>
 			</div>
 		</div>
-		<Cta />
 	</div>
+	<Cta />
 </div>

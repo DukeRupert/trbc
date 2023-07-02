@@ -12,15 +12,18 @@
 	// Skeleton Popup requirements
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+
+	import { Toast } from '@skeletonlabs/skeleton';
+
 	import Header from '$lib/components/Nav/Header.svelte';
 	import Drawer from '$lib/components/Nav/Drawer.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
 	export let data: LayoutServerData;
-	console.log(data);
 </script>
 
+<Toast />
 <div class="parent" id="foundation">
 	<header>
 		<Header logo={data?.siteMetaData?.logo?.asset} />

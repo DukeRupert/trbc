@@ -13,9 +13,11 @@
 			<div class="mx-auto max-w-2xl lg:mx-0">
 				{#if value?.logo}
 					<img
-						class="h-24 mx-auto md:mx-0"
+						class="h-24 w-auto mx-auto md:mx-0"
 						src={urlFor(value?.logo?.asset).height(200).format('webp').url()}
 						alt="The Ridge Bible Church logo"
+						height="200"
+						width="479"
 					/>
 				{/if}
 				{#if value?.isHighlight}
@@ -56,8 +58,10 @@
 		<div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
 			<img
 				class="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
-				src={urlFor(value?.image?.asset).width(2160).format('webp').url()}
+				src={urlFor(value?.image?.asset).width(1080).format('webp').url()}
 				alt={value?.image?.alt}
+				height="720"
+				width="1080"
 			/>
 		</div>
 	</div>

@@ -21,11 +21,13 @@
 
 <AppBar background="bg-surface-50-900-token">
 	<svelte:fragment slot="lead">
-		<a href="/"
-			><img
-				class="h-8 {$page.route.id !== '/' ? 'visible' : 'invisible'}"
+		<a href="/">
+			<span class="sr-only">Return home</span><img
+				class="h-8 w-auto {$page.route.id !== '/' ? 'visible' : 'invisible'}"
 				src={urlFor(logo).height(80).format('webp').url()}
 				alt="The Ridge Bible Church logo"
+				height="80"
+				width="191"
 			/></a
 		>
 	</svelte:fragment>
@@ -58,7 +60,9 @@
 	</nav>
 
 	<svelte:fragment slot="trail"
-		><button class="btn-icon md:hidden" type="button" on:click={handleclick}><Menu /></button
-		></svelte:fragment
+		><button class="btn-icon md:hidden" type="button" on:click={handleclick}>
+			<span class="sr-only">Open main menu</span>
+			<Menu />
+		</button></svelte:fragment
 	>
 </AppBar>

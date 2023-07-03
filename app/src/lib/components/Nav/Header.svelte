@@ -38,12 +38,12 @@
 					<ul>
 						<li><a href="/why-the-ridge">Why the Ridge?</a></li>
 						<li><a href="/statement-of-faith">Statement of Faith</a></li>
-						<li><a href="/staff">Staff</a></li>
+						<li><a href="/#staff">Staff</a></li>
 					</ul>
 				</div>
 			</span>
-			<a href="/sermons" class="block">Sermons</a>
-			<a href="/contact-us" class="block">Contact Us</a>
+			<!-- <a href="/sermons" class="block">Sermons</a> -->
+			<a href="/#contact-us" class="block">Contact Us</a>
 		</div>
 		<div class="ml-auto space-x-2">
 			<a

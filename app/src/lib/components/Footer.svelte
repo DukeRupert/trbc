@@ -16,33 +16,25 @@
 		<nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
 			<div class="pb-6">
 				<a
-					href="/about-us"
+					href="/why-the-ridge"
 					class="unstyled text-sm leading-6 text-gray-600 hover:text-primary-900 hover:underline underline-offset-2"
-					>About Us</a
+					>Why the Ridge?</a
 				>
 			</div>
 
 			<div class="pb-6">
 				<a
-					href="/sermons"
+					href="/statement-of-faith"
 					class="unstyled text-sm leading-6 text-gray-600 hover:text-gray-900 hover:underline underline-offset-2"
-					>Sermons</a
+					>Statement of Faith</a
 				>
 			</div>
 
 			<div class="pb-6">
 				<a
-					href="/contact-us"
+					href="/#contact-us"
 					class="unstyled text-sm leading-6 text-gray-600 hover:text-gray-900 hover:underline underline-offset-2"
 					>Contact Us</a
-				>
-			</div>
-
-			<div class="pb-6">
-				<a
-					href="/#"
-					class="unstyled text-sm leading-6 text-gray-600 hover:text-gray-900 hover:underline underline-offset-2"
-					>Give</a
 				>
 			</div>
 		</nav>

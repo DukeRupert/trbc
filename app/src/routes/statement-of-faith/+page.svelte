@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { urlFor } from '$lib/sanity/client';
 	import type { PageData } from './$types';
 	import Seo from '$lib/components/Seo.svelte';
 	import Cta from '$lib/components/Cta.svelte';
 	import { page } from '$app/stores';
 
 	export let data: PageData;
-	console.log(data);
 </script>
 
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />

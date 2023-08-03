@@ -29,6 +29,8 @@
 			trigger_error_toast();
 		}
 	}
+
+	console.log(data);
 </script>
 
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />

@@ -9,7 +9,7 @@
 
 <div class="relative bg-white">
 	<div class="mx-auto max-w-7xl pb-16 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-		<div class="px-6 pt-24 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-48 lg:pb-56 xl:col-span-6">
+		<div class="px-6 pt-16 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-48 lg:pb-56 xl:col-span-6">
 			<div class="mx-auto max-w-2xl lg:mx-0">
 				{#if value?.logo}
 					<img
@@ -21,15 +21,15 @@
 					/>
 				{/if}
 				{#if value?.isHighlight}
-					<div class="hidden sm:mt-32 sm:flex lg:mt-16">
+					<div class="mt-8 sm:mt-32 sm:flex lg:mt-16">
 						<div
-							class="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+							class="relative animate-bounce rounded-full py-1 px-3 text-sm leading-6 text-gray-500 ring-1 ring-primary-700/30 hover:ring-primary-900/20"
 						>
 							{value?.highlightText}
 							<a
 								href={value?.highlightHref}
 								class="whitespace-nowrap font-semibold text-primary-600"
-								><span class="absolute inset-0" aria-hidden="true" />Read more
+								><span class="absolute inset-0" aria-hidden="true" />Learn more
 								<span aria-hidden="true">&rarr;</span></a
 							>
 						</div>

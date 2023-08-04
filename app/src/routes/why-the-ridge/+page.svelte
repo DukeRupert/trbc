@@ -76,13 +76,6 @@
 						church”. This means we rely on the Word of God as our final authority in all our
 						endeavors.
 					</p>
-
-					<p class="mt-8">
-						Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit
-						molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris
-						varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut.
-						Ac lorem vel integer orci.
-					</p>
 					<p class="mt-8">
 						There’s much more to the story, so if you would like to learn more about our church,
 						please contact us.

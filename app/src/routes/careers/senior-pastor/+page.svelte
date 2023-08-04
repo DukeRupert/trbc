@@ -226,15 +226,6 @@
 					attendance of 75 people (with approximately an additional 30 who watch online).
 				</p>
 				<p class="mt-8">
-					The Ridge Bible Church is in an area that is exploding with growth. New houses and
-					apartment buildings are springing up everywhere within a 10-mile radius of our church.
-					While the average age of our congregation is over 50 years old, we desire to reach our
-					community for Christ and build vibrant ministries for people of all age groups. Currently
-					we have outreach ministries at the local middle school, the county fair and we also
-					support local and international ministries. Our Sunday morning services see an average
-					attendance of 75 people (with approximately an additional 30 who watch online).
-				</p>
-				<p class="mt-8">
 					Our staff currently consists of a part time associate pastor, a part time secretary, and a
 					custodian. Our church governance can be described as elder-led, congregation-ruled and we
 					abide by a constitution that was drafted and approved by our congregation two years ago.

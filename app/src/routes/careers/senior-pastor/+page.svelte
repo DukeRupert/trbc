@@ -298,7 +298,10 @@
 <FadeIn>
 	<div class="bg-gray-50 px-6 lg:px-8 pb-16">
 		<div class="max-w-2xl mx-auto text-center">
-			<a href="#" class="btn btn-xl variant-filled-primary">Apply Now</a>
+			<a
+				href="/careers/senior-pastor/senior-pastor-application"
+				class="btn btn-xl variant-filled-primary">Apply Now</a
+			>
 		</div>
 	</div>
 </FadeIn>

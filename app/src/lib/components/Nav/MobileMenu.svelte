@@ -9,7 +9,7 @@
 		<a href="/#staff" class="blcok px-6 py-4">Staff</a>
 		<a href="/sermons" class="block px-6 py-4">Sermons</a>
 		<a href="/careers" class="block px-6 py-4">Careers</a>
-		<a href="/contact-us" class="block px-6 py-4">Contact Us</a>
+		<a href="/#contact-us" class="block px-6 py-4">Contact Us</a>
 	</div>
 	<hr />
 	<div class="flex flex-col space-y-6 pt-8 pb-3">

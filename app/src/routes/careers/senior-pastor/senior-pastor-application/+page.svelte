@@ -52,6 +52,10 @@
 	<div class="mx-auto max-w-7xl gap-x-8 gap-y-20 px-2 lg:px-8">
 		<div class="max-w-2xl mx-auto text-center">
 			<h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">The Application</h2>
+			<p class="mt-1 text-sm leading-6 text-gray-600">
+				Please fill out the form below and press submit. We will contact you as soon as possible
+				letting you know that we have recieved your application.
+			</p>
 		</div>
 
 		<!-- Form -->
@@ -320,6 +324,8 @@
 									<div class="mt-4 flex text-sm leading-6 text-gray-600">
 										<a
 											href="https://docs.google.com/forms/d/e/1FAIpQLSeLtYmHiPMHG1xdaSZxY9NwzYTkdUwvhutvOtJtD7KmugBMSg/viewform"
+											target="_blank"
+											referrerpolicy="no-referrer"
 											class="anchor">Click here to upload your resume</a
 										>
 									</div>

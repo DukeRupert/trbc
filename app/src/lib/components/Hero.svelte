@@ -23,7 +23,7 @@
 				{#if value?.isHighlight}
 					<div class="mt-8 sm:mt-32 sm:flex lg:mt-16">
 						<div
-							class="relative animate-bounce rounded-full py-1 px-3 text-sm leading-6 text-gray-500 ring-1 ring-primary-700/30 hover:ring-primary-900/20"
+							class="relative animate-bounce rounded-full py-1 px-3 text-sm md:text-lg leading-6 text-gray-500 ring-1 ring-primary-700/30 hover:ring-primary-900/20"
 						>
 							{value?.highlightText}
 							<a

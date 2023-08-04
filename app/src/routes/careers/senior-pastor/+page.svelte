@@ -79,7 +79,13 @@
 	];
 </script>
 
-<svelte:head><title>Job Opening | Senior Pastor | The Ridge Bible Church</title></svelte:head>
+<svelte:head>
+	<title>Job Opening | Senior Pastor | The Ridge Bible Church</title>
+	<meta
+		name="description"
+		content="The Ridge Bible Church is a great place to work. We are looking for a senior pastor. Learn more about the position and apply here."
+	/>
+</svelte:head>
 
 <!-- Section Header -->
 <div class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
@@ -153,7 +159,7 @@
 </div>
 
 <!-- Letter to Candidate -->
-<FadeIn>
+<!-- <FadeIn>
 	<div class="bg-gray-50 px-6 py-16 lg:px-8">
 		<div
 			class="bg-white mx-auto max-w-3xl text-base leading-7 text-gray-700 px-6 py-16 lg:px-8 rounded-md"
@@ -188,7 +194,7 @@
 			</div>
 		</div>
 	</div>
-</FadeIn>
+</FadeIn> -->
 
 <!-- About TRBC -->
 <FadeIn>

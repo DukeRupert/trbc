@@ -33,6 +33,14 @@
 	console.log(data);
 </script>
 
+<svelte:head
+	><script
+		defer
+		data-domain="theridgebiblechurch.com"
+		src="https://plausible.io/js/script.js"
+	></script>
+</svelte:head>
+
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />
 <PortableText
 	value={blocks}

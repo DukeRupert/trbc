@@ -18,15 +18,15 @@
 					{value?.title ?? 'Our people'}
 				</h2>
 				<p class="mt-6 text-xl leading-8 text-gray-600">
-					{value?.text ??
+					{value?.tagline ??
 						'Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.'}
 				</p>
-				<p class="mt-6 text-base leading-7 text-gray-600">
+				<!-- <p class="mt-6 text-base leading-7 text-gray-600">
 					{value?.subtext ??
 						`Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
 		      Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque
 					reprehenderit.`}
-				</p>
+				</p> -->
 			</div>
 		</FadeIn>
 		{#if value?.members && value?.members.length > 0}

@@ -47,7 +47,7 @@ export const actions: Actions = {
 				TemplateId: 20861986,
 				TemplateModel: form.data,
 				From: 'logan@fireflysoftware.dev',
-				To: 'logan@fireflysoftware.dev',
+				To: 'theridgepsc@gmail.com',
 				MessageStream: 'outbound',
 				TrackOpens: true
 			};

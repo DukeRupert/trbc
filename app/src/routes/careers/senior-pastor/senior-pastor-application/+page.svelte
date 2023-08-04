@@ -24,6 +24,14 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Apply | Senior Pastor | The Ridge Bible Church</title>
+	<meta
+		name="description"
+		content="The Ridge Bible Church is a great place to work. We are looking for a senior pastor. Apply for the position here."
+	/>
+</svelte:head>
+
 <!-- Section Header -->
 <div class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
 	<Img

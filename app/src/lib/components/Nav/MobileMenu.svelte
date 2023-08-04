@@ -1,5 +1,4 @@
 <script lang="ts">
-	// Todo
 </script>
 
 <div id="mobile-menu" class="flex flex-col">
@@ -7,8 +6,9 @@
 		<!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
 		<a href="/why-the-ridge" class="block px-6 py-4">Why the Ridge?</a>
 		<a href="/statement-of-faith" class="block px-6 py-4">Statement of Faith</a>
-		<a href="/staff" class="blcok px-6 py-4">Staff</a>
+		<a href="/#staff" class="blcok px-6 py-4">Staff</a>
 		<a href="/sermons" class="block px-6 py-4">Sermons</a>
+		<a href="/careers" class="block px-6 py-4">Careers</a>
 		<a href="/contact-us" class="block px-6 py-4">Contact Us</a>
 	</div>
 	<hr />

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { urlFor } from '$lib/sanity/client';
+	import { navigating } from '$app/stores';
 	import { AppBar, popup, type PopupSettings } from '@skeletonlabs/skeleton';
-	import { drawerOpen } from '$lib/utils';
+	import { drawerOpen, drawerClose } from '$lib/utils';
 	import Menu from '$lib/icons/Menu.svelte';
 	import type { Asset } from '$lib/sanity/types/features';
 
@@ -17,6 +18,8 @@
 	function handleclick(): void {
 		drawerOpen({ id: 'navigation' });
 	}
+
+	$: if (navigating) drawerClose();
 </script>
 
 <AppBar background="bg-surface-50-900-token">
@@ -41,6 +44,7 @@
 						<li><a href="/why-the-ridge">Why the Ridge?</a></li>
 						<li><a href="/statement-of-faith">Statement of Faith</a></li>
 						<li><a href="/#staff">Staff</a></li>
+						<li><a href="/careers">Careers</a></li>
 					</ul>
 				</div>
 			</span>

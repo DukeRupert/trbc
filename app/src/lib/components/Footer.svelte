@@ -32,6 +32,14 @@
 
 			<div class="pb-6">
 				<a
+					href="/careers"
+					class="unstyled text-sm leading-6 text-gray-600 hover:text-gray-900 hover:underline underline-offset-2"
+					>Careers</a
+				>
+			</div>
+
+			<div class="pb-6">
+				<a
 					href="/#contact-us"
 					class="unstyled text-sm leading-6 text-gray-600 hover:text-gray-900 hover:underline underline-offset-2"
 					>Contact Us</a

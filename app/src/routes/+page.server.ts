@@ -3,6 +3,9 @@ import postmarkClient from '$lib/postmarkClient';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import { fail } from '@sveltejs/kit';
+import type { SanityPage } from '$lib/sanity/types/page';
+import Sanity from '$lib/sanity/client';
+import { getPageData } from '$lib/sanity/query';
 
 const schema = z.object({
 	name: z.string().max(50),
@@ -11,12 +14,20 @@ const schema = z.object({
 	message: z.string().max(250)
 });
 
-export const load = async () => {
+export const load = async ({ url }) => {
+	const { pathname } = url;
+
+	const parameters = {
+		pathname
+	};
+
+	const data: SanityPage = await Sanity.fetch(getPageData, parameters);
+
 	// Server API:
 	const form = await superValidate(schema);
 
 	// Always return { form } in load and form actions.
-	return { form };
+	return { page: data, form };
 };
 
 export const actions: Actions = {
@@ -50,8 +61,8 @@ export const actions: Actions = {
 			return fail(400, { form });
 		} catch (error) {
 			await postmarkClient.sendEmail({
-				From: 'logan@firefly.llc',
-				To: 'logan@firefly.llc',
+				From: 'logan@fireflysoftware.dev',
+				To: 'logan@fireflysoftware.dev',
 
 				Subject: 'The Ridge Website form error',
 				TextBody: JSON.stringify(error)

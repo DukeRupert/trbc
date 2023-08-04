@@ -3,12 +3,25 @@
 	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
-	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
+	import { trigger_success_toast, trigger_error_toast } from '$lib/utils';
+	import { page } from '$app/stores';
 
 	export let data: PageData;
+	// Superforms client API:
+	const { form, posted, message, errors, constraints, enhance, capture, restore } = superForm(
+		data.form
+	);
+	// Snapshot functionality
+	export const snapshot = { capture, restore };
 
-	// Client API:
-	const { form } = superForm(data.form);
+	$: if ($posted) {
+		if ($page.status == 200) {
+			trigger_success_toast($message);
+		}
+		if ($page.status == 400) {
+			trigger_error_toast();
+		}
+	}
 </script>
 
 <!-- Section Header -->
@@ -34,7 +47,7 @@
 		</div>
 
 		<!-- Form -->
-		<form class="mt-8" method="POST">
+		<form class="mt-8" method="POST" use:enhance>
 			<div class="space-y-12 bg-white shadow-sm ring-1 ring-gray-900/5 rounded-xl px-2 pt-4">
 				<div
 					class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3"
@@ -58,6 +71,9 @@
 									id="first_name"
 									autocomplete="given-name"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.first_name ? 'true' : undefined}
+									bind:value={$form.first_name}
+									{...$constraints.first_name}
 								/>
 							</div>
 						</div>
@@ -73,6 +89,9 @@
 									id="last_name"
 									autocomplete="family-name"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.last_name ? 'true' : undefined}
+									bind:value={$form.last_name}
+									{...$constraints.last_name}
 								/>
 							</div>
 						</div>
@@ -88,21 +107,27 @@
 									type="email"
 									autocomplete="email"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.email ? 'true' : undefined}
+									bind:value={$form.email}
+									{...$constraints.email}
 								/>
 							</div>
 						</div>
 
 						<div class="col-span-full">
-							<label for="street-address" class="block text-sm font-medium leading-6 text-gray-900"
+							<label for="street_address" class="block text-sm font-medium leading-6 text-gray-900"
 								>Street address</label
 							>
 							<div class="mt-2">
 								<input
 									type="text"
-									name="street-address"
-									id="street-address"
+									name="street_address"
+									id="street_address"
 									autocomplete="street-address"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.first_name ? 'true' : undefined}
+									bind:value={$form.street_address}
+									{...$constraints.street_address}
 								/>
 							</div>
 						</div>
@@ -118,6 +143,9 @@
 									id="city"
 									autocomplete="address-level2"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.city ? 'true' : undefined}
+									bind:value={$form.city}
+									{...$constraints.city}
 								/>
 							</div>
 						</div>
@@ -133,21 +161,27 @@
 									id="region"
 									autocomplete="address-level1"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.region ? 'true' : undefined}
+									bind:value={$form.region}
+									{...$constraints.region}
 								/>
 							</div>
 						</div>
 
 						<div class="sm:col-span-2">
-							<label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900"
+							<label for="postal_code" class="block text-sm font-medium leading-6 text-gray-900"
 								>ZIP / Postal code</label
 							>
 							<div class="mt-2">
 								<input
 									type="text"
-									name="postal-code"
-									id="postal-code"
+									name="postal_code"
+									id="postal_code"
 									autocomplete="postal-code"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.postal_code ? 'true' : undefined}
+									bind:value={$form.postal_code}
+									{...$constraints.postal_code}
 								/>
 							</div>
 						</div>
@@ -163,7 +197,7 @@
 									autocomplete="country-name"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:max-w-xs sm:text-sm sm:leading-6"
 								>
-									<option>United States</option>
+									<option selected>United States</option>
 									<option>Canada</option>
 									<option>Mexico</option>
 								</select>
@@ -194,6 +228,9 @@
 									name="non_negotiable"
 									rows="3"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.non_negotiable ? 'true' : undefined}
+									bind:value={$form.non_negotiable}
+									{...$constraints.non_negotiable}
 								/>
 							</div>
 						</div>
@@ -208,6 +245,9 @@
 									name="role"
 									rows="3"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.role ? 'true' : undefined}
+									bind:value={$form.role}
+									{...$constraints.role}
 								/>
 							</div>
 						</div>
@@ -223,6 +263,9 @@
 									name="sof_response"
 									rows="3"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.sof_response ? 'true' : undefined}
+									bind:value={$form.sof_response}
+									{...$constraints.sof_response}
 								/>
 							</div>
 						</div>
@@ -237,6 +280,9 @@
 									name="testimony"
 									rows="3"
 									class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+									aria-invalid={$errors.testimony ? 'true' : undefined}
+									bind:value={$form.testimony}
+									{...$constraints.testimony}
 								/>
 							</div>
 						</div>
@@ -281,8 +327,5 @@
 				<button type="submit" class="btn variant-filled-primary">Submit</button>
 			</div>
 		</form>
-		<!-- <div class="mt-8">
-			<SuperDebug data={$form} />
-		</div> -->
 	</div>
 </div>

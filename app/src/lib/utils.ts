@@ -18,12 +18,16 @@ export function drawerClose(): void {
 }
 
 // Toast
-const tSuccess: ToastSettings = {
-	message: 'Message sent!',
-	background: 'variant-filled-success'
-};
+// const tSuccess: ToastSettings = {
+// 	message: 'Message sent!',
+// 	background: 'variant-filled-success'
+// };
 
-export const trigger_success_toast = () => {
+export const trigger_success_toast = (message: string) => {
+	const tSuccess: ToastSettings = {
+		message: message ?? 'Message sent!',
+		background: 'variant-filled-success'
+	};
 	toastStore.trigger(tSuccess);
 };
 

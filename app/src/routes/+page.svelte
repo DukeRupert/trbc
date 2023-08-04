@@ -23,7 +23,7 @@
 
 	$: if ($posted) {
 		if ($page.status == 200) {
-			trigger_success_toast();
+			trigger_success_toast('Message sent!');
 		}
 		if ($page.status == 400) {
 			trigger_error_toast();

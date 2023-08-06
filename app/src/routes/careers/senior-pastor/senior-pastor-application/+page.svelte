@@ -306,7 +306,7 @@
 							<div
 								class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
 							>
-								<div class="text-center">
+								<div class="text-center max-w-sm">
 									<svg
 										class="mx-auto h-12 w-12 text-gray-300"
 										fill="none"
@@ -321,15 +321,20 @@
 										/>
 									</svg>
 
-									<div class="mt-4 flex text-sm leading-6 text-gray-600">
-										<a
-											href="https://docs.google.com/forms/d/e/1FAIpQLSeLtYmHiPMHG1xdaSZxY9NwzYTkdUwvhutvOtJtD7KmugBMSg/viewform"
-											target="_blank"
-											referrerpolicy="no-referrer"
-											class="anchor">Click here to upload your resume</a
-										>
-									</div>
+									<a
+										href="https://docs.google.com/forms/d/e/1FAIpQLSeLtYmHiPMHG1xdaSZxY9NwzYTkdUwvhutvOtJtD7KmugBMSg/viewform"
+										target="_blank"
+										referrerpolicy="no-referrer"
+										class="anchor text-sm leading-6">Click here to upload your resume</a
+									>
+
 									<p class="text-xs leading-5 text-gray-600">PDF, DOC, DOCX, up to 20MB</p>
+									<p class="mt-4 text-xs leading-5 text-gray-600">
+										or please email your resume to <a
+											class="anchor"
+											href="mailto:theridgepsc@gmail.com">theridgepsc@gmail.com</a
+										> <br />with your name in the subject heading.
+									</p>
 								</div>
 							</div>
 						</div>

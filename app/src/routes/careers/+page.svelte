@@ -33,7 +33,7 @@
 		<div class="max-w-2xl mx-auto text-center">
 			<h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Open Positions</h2>
 		</div>
-		<dl class="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+		<!-- <dl class="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
 			<FadeIn>
 				<div class="card bg-white shadow-md px-4 py-2">
 					<header class="card-header">
@@ -68,6 +68,9 @@
 					</footer>
 				</div>
 			</FadeIn>
-		</dl>
+		</dl> -->
+		<div class="mt-12 w-full flex justify-center items-center">
+			<h2>We are not seeking candidates for any positions at this time.</h2>
+		</div>
 	</div>
 </div>

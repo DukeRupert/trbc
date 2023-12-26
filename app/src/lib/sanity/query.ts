@@ -59,9 +59,35 @@ export const getPageData = `
 `;
 
 // Get all posts associated with the given category
+// export const getPosts = `
+// *[_type == "post" && references(*[_type == 'category' && title == $tag]._id) && publishedAt < now()][0...$max] | order(publishedAt desc) {
+//   ...,
+//   "excerpt": array::join(string::split((pt::text(body)), "")[0..255], "")
+// }
+// `
+
+// Get all posts published before now
 export const getPosts = `
-*[_type == "post" && references(*[_type == 'category' && title == $tag]._id) && publishedAt < now()][0...$max] | order(publishedAt desc) {
-  ...,
-  "excerpt": array::join(string::split((pt::text(body)), "")[0..255], "")
-}
-`;
+*[_type == "post"][$min...$max] | order(publishedAt desc) {
+    title,
+    coverImage{asset->{url, metadata{lqip, dimensions}}},
+    tag[]->{title},
+    date,
+    content[]{...,
+      _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
+    }
+  }
+`
+
+// Get post based on slug
+export const getPost = `
+  *[_type == "post" && slug.current == $slug]{
+    title,
+    coverImage{asset->{url, metadata{lqip, dimensions}}},
+    tag[]->{title},
+    date,
+    content[]{...,
+      _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
+    }
+  }
+`

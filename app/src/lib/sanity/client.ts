@@ -14,10 +14,10 @@ const Sanity = createClient({
 	useCdn: false // `false` if you want to ensure fresh data
 });
 
-const builder = imageUrlBuilder(Sanity);
+export const imageBuilder = imageUrlBuilder(Sanity);
 
 export const urlFor = (source: string | SanityAsset) => {
-	return builder.image(source);
+	return imageBuilder.image(source);
 };
 
 export default Sanity;

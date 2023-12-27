@@ -19,54 +19,28 @@
 	import Header from '$lib/components/Nav/Header.svelte';
 	import Drawer from '$lib/components/Nav/Drawer.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
+	import { setContext } from 'svelte'
 
 	export let data: LayoutServerData;
-	console.log(data)
+	console.log(data);
+
+	// sets the value in parent component
+	setContext('church', data.churchData)
 </script>
 
 <Toast />
-<div class="parent" id="foundation">
-	<header>
-		<!-- <Header logo={data?.siteMetaData?.logo?.asset} /> -->
-	</header>
-	<main>
-		<slot />
-	</main>
-	<div class="right-side">
-		<Drawer />
-	</div>
-	<footer>
-		<!-- <Footer
+<NavBar logo={data.churchData.logo} socials={data.churchData.socials} />
+<main>
+	<slot />
+</main>
+<div class="right-side">
+	<Drawer />
+</div>
+<footer>
+	<!-- <Footer
 			business={data?.siteMetaData?.business}
 			socialMedia={data?.siteMetaData?.socialMedia}
 			logo={data?.siteMetaData?.logo}
 		/> -->
-	</footer>
-</div>
-
-<style>
-	.parent {
-		display: grid;
-		grid-template: auto 1fr auto / auto 1fr auto;
-	}
-
-	header {
-		grid-column: 1 / 4;
-	}
-
-	.left-side {
-		grid-column: 1 / 2;
-	}
-
-	main {
-		grid-column: 2 / 3;
-	}
-
-	.right-side {
-		grid-column: 3 / 4;
-	}
-
-	footer {
-		grid-column: 1 / 4;
-	}
-</style>
+</footer>

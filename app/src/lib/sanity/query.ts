@@ -9,7 +9,7 @@ export const getChurchData = `
       twitter,
       instagram
     },
-    logo{asset->{url, metadata{lqip, dimensions}}},
+    logo,
     "address": {
       address1,
       city,

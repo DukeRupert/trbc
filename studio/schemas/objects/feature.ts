@@ -25,17 +25,10 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      type: 'icon.manager',
       name: 'icon',
       title: 'Icon',
-      type: 'reference',
-      to: {type: 'icon'},
       hidden: ({parent}) => !parent?.useIcon,
-    }),
-    defineField({
-      name: 'useImage',
-      title: 'Use Image',
-      type: 'boolean',
-      initialValue: false,
     }),
     defineField({
       name: 'image',

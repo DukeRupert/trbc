@@ -1,7 +1,8 @@
-import { DocumentIcon } from "@sanity/icons";
+import { CalendarIcon } from "@sanity/icons";
 import { format, parseISO } from "date-fns";
 import { defineField, defineType, defineArrayMember } from "sanity";
 import authorType from "./author";
+import categoryType from './category'
 
 /**
  * This file is the schema definition for a post.
@@ -16,9 +17,9 @@ import authorType from "./author";
  */
 
 export default defineType({
-  name: "post",
-  title: "Post",
-  icon: DocumentIcon,
+  name: "event",
+  title: "Event",
+  icon: CalendarIcon,
   type: "document",
   fields: [
     defineField({
@@ -57,35 +58,35 @@ export default defineType({
       title: "Content",
       type: "array",
       of: [
-        { type: "block" },
-        {
+        defineArrayMember({ type: "block" }),
+        defineArrayMember({
           type: "image",
           options: {
             hotspot: true,
           },
           fields: [
-            {
+            defineField({
               name: "caption",
               type: "string",
               title: "Image caption",
               description: "Caption displayed below the image.",
-            },
-            {
+            }),
+            defineField({
               name: "alt",
               type: "string",
               title: "Alternative text",
               description: "Important for SEO and accessiblity.",
-            },
+            }),
           ],
-        },
+        }),
       ],
     }),
-     defineField({
-      name: 'category',
-      title: 'Categories',
+    defineField({
+      name: "category",
+      title: "Categories",
       description: "Use categories to group posts or events together.",
-      type: 'array',
-      of: [defineArrayMember({ type: 'reference', to: { type: 'category' } })],
+      type: "array",
+      of: [defineArrayMember({ type: "reference", to: { type: categoryType.name } })],
     }),
     defineField({
       name: "author",

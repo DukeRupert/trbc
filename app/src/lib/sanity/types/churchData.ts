@@ -1,7 +1,9 @@
 // ChurchData object
+import type { Image } from "./image"
+
 export type ChurchData = {
   socials: Socials
-  logo: Logo
+  logo: Image
   address: Address
   staff: Staff
   name: string
@@ -13,10 +15,6 @@ export interface Socials {
   facebook: string | null
   twitter: string | null
   instagram: string | null 
-}
-
-export interface Logo {
-  asset: Asset
 }
 
 export interface Asset {
@@ -62,27 +60,6 @@ export interface Elder {
   _id: string
 }
 
-export interface Image {
-  asset: Asset2
-}
-
-export interface Asset2 {
-  url: string
-  metadata: Metadata2
-}
-
-export interface Metadata2 {
-  lqip: string
-  dimensions: Dimensions2
-}
-
-export interface Dimensions2 {
-  width: number
-  aspectRatio: number
-  height: number
-  _type: string
-}
-
 export interface Bio {
   _type: string
   style: string
@@ -105,40 +82,14 @@ export interface Slug {
 
 export interface Support {
   _rev: string
-  image: Image2
+  image: Image
   _type: string
   _id: string
   title: string
   _updatedAt: string
-  slug: Slug2
+  slug: Slug 
   _createdAt: string
   name: string
-}
-
-export interface Image2 {
-  asset: Asset3
-}
-
-export interface Asset3 {
-  url: string
-  metadata: Metadata3
-}
-
-export interface Metadata3 {
-  lqip: string
-  dimensions: Dimensions3
-}
-
-export interface Dimensions3 {
-  aspectRatio: number
-  height: number
-  _type: string
-  width: number
-}
-
-export interface Slug2 {
-  current: string
-  _type: string
 }
 
 export interface About {

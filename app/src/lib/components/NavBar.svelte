@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { quadOut } from 'svelte/easing';
-	import type { Logo, Socials } from '$lib/sanity/types/churchData';
+	import type { Socials } from '$lib/sanity/types/churchData';
+	import type { Image } from '$lib/sanity/types/image';
 	import { page, navigating } from '$app/stores';
 	import { Menu } from 'lucide-svelte';
 	import { createDialog, melt } from '@melt-ui/svelte';
 	import { fly, type FlyParams, fade, type FadeParams } from 'svelte/transition';
-	import { urlFor } from '$lib/sanity/client';
 	import SanityImage from '$lib/sanity/SanityImage/SanityImage.svelte';
 
-	export let logo: Logo;
+	export let logo: Image;
 	export let socials: Socials;
 
 	const links = [
-		{ label: 'Events', href: '/events'},
-		{ label: 'Posts', href: '/posts'},
+		{ label: 'Events', href: '/events' },
+		{ label: 'Posts', href: '/posts' },
 		{ label: 'About Us', href: '/about-us' },
 		{ label: 'Statement of Faith', href: '/statement-of-faith' },
 		{ label: 'Contact Us', href: '/contact-us' }
@@ -28,7 +28,7 @@
 	const fadeParams: FadeParams = {
 		duration: 300,
 		easing: quadOut
-	}
+	};
 
 	// Dropdown menu
 	const {
@@ -48,12 +48,7 @@
 		<div class="flex lg:flex-1">
 			<a href="#" class="-m-1.5 p-1.5">
 				<span class="sr-only">Your Company</span>
-				<!-- <img
-					class="h-8 w-auto"
-					src={urlFor(logo)}
-					alt=""
-				/> -->
-				<SanityImage image={logo} maxWidth={200} />
+				<SanityImage image={logo} maxWidth={100} />
 			</a>
 		</div>
 		<div class="flex lg:hidden">
@@ -90,7 +85,11 @@
 	<div use:melt={$portalled} class="lg:hidden" role="dialog" aria-modal="true">
 		{#if $open}
 			<!-- Background backdrop, show/hide based on slide-over state. -->
-			<div use:melt={$overlay} transition:fade={fadeParams} class="fixed bg-gray-950/70 inset-0 z-10" />
+			<div
+				use:melt={$overlay}
+				transition:fade={fadeParams}
+				class="fixed bg-gray-950/70 inset-0 z-10"
+			/>
 			<div
 				use:melt={$content}
 				transition:fly={flyParams}
@@ -99,14 +98,15 @@
 				<div class="flex items-center justify-between">
 					<a href="#" class="-m-1.5 p-1.5">
 						<span class="sr-only">Your Company</span>
-						<img
-							class="h-8 w-auto"
-							src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-							alt=""
-						/>
+						<SanityImage image={logo} maxWidth={100} />
 					</a>
-					<button use:melt={$close} aria-controls="mobile-menu"
-				aria-expanded={$open} type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+					<button
+						use:melt={$close}
+						aria-controls="mobile-menu"
+						aria-expanded={$open}
+						type="button"
+						class="-m-2.5 rounded-md p-2.5 text-gray-700"
+					>
 						<span class="sr-only">Close menu</span>
 						<svg
 							class="h-6 w-6"
@@ -123,26 +123,13 @@
 				<div class="mt-6 flow-root">
 					<div class="-my-6 divide-y divide-gray-500/10">
 						<div class="space-y-2 py-6">
-							<a
-								href="#"
-								class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>Product</a
-							>
-							<a
-								href="#"
-								class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>Features</a
-							>
-							<a
-								href="#"
-								class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>Marketplace</a
-							>
-							<a
-								href="#"
-								class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>Company</a
-							>
+							{#each links as { label, href }}
+								<a
+									{href}
+									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+									>{label}</a
+								>
+							{/each}
 						</div>
 						<div class="py-6">
 							<a

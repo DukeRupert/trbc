@@ -24,7 +24,7 @@
 
 <AppBar background="bg-surface-50-900-token">
 	<svelte:fragment slot="lead">
-		<a href="/">
+		<!-- <a href="/">
 			<span class="sr-only">Return home</span><img
 				class="h-8 w-auto {$page.route.id !== '/' ? 'visible' : 'invisible'}"
 				src={urlFor(logo).height(80).format('webp').url()}
@@ -32,7 +32,7 @@
 				height="80"
 				width="191"
 			/></a
-		>
+		> -->
 	</svelte:fragment>
 
 	<nav class="relative hidden md:flex justify-between">

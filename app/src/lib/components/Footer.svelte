@@ -4,7 +4,7 @@
 		Business,
 		SocialMedia as SocialMediaData,
 		Logo
-	} from '$lib/sanity/types/siteMetaData';
+	} from '$lib/sanity/types/churchData';
 	export let business: Business;
 	export let socialMedia: SocialMediaData;
 	export let logo: Logo;

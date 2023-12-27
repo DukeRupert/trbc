@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SanityAsset } from '@sanity/image-url/lib/types/types';
-	import type { SocialMedia } from '$lib/sanity/types/siteMetaData';
+	import type { SocialMedia } from '$lib/sanity/types/churchData';
 	import { isMobileMenuOpen } from '$lib/SiteState';
 	import { urlFor } from '$lib/sanity/client';
 	import { page } from '$app/stores';
@@ -32,11 +32,11 @@
 			<!-- {#if $page?.route?.id !== '/(website)'} -->
 			<a href="/">
 				<span class="sr-only">Your Company</span>
-				<img
+				<!-- <img
 					class="h-8 w-auto sm:h-10"
 					src={urlFor(logo?.asset).height(80).format('webp').url()}
 					alt="Your Company"
-				/>
+				/> -->
 			</a>
 			<!-- {/if} -->
 		</div>

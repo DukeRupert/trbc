@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { isMobileMenuOpen } from '$lib/SiteState';
 	import type { SanityAsset } from '@sanity/image-url/lib/types/types';
-	import type { SocialMedia as SocialMediaData } from '$lib/sanity/types/siteMetaData';
+	import type { SocialMedia as SocialMediaData } from '$lib/sanity/types/churchData';
 	import { urlFor } from '$lib/sanity/client';
 	import SocialMedia from '$lib/components/SocialMedia.svelte';
 
@@ -24,11 +24,11 @@
 		<div class="px-5 pt-5 pb-6">
 			<div class="flex items-center justify-between">
 				<div>
-					<img
+					<!-- <img
 						class="h-8 w-auto"
 						src={urlFor(logo?.asset).height(40).format('webp').url()}
 						alt="Your Company"
-					/>
+					/> -->
 				</div>
 				<div class="-mr-2">
 					<button

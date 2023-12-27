@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SocialMedia } from '$lib/sanity/types/siteMetaData';
+	import type { SocialMedia } from '$lib/sanity/types/churchData';
 	export let socialMedia: SocialMedia;
 </script>
 

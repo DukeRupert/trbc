@@ -21,12 +21,13 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	export let data: LayoutServerData;
+	console.log(data)
 </script>
 
 <Toast />
 <div class="parent" id="foundation">
 	<header>
-		<Header logo={data?.siteMetaData?.logo?.asset} />
+		<!-- <Header logo={data?.siteMetaData?.logo?.asset} /> -->
 	</header>
 	<main>
 		<slot />
@@ -35,11 +36,11 @@
 		<Drawer />
 	</div>
 	<footer>
-		<Footer
+		<!-- <Footer
 			business={data?.siteMetaData?.business}
 			socialMedia={data?.siteMetaData?.socialMedia}
 			logo={data?.siteMetaData?.logo}
-		/>
+		/> -->
 	</footer>
 </div>
 

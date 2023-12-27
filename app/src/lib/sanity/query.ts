@@ -1,39 +1,27 @@
-export const getSiteMetaData = `
-*[_type=="siteMeta"][0] {
-  site_name,
-  url,
-  logo,
-  isGoogleAnalyticsDisabled,
-  isPlausibleEnabled,
-  "business" : {
-    business_name,
+// Layout query for church data
+export const getChurchData = `
+  *[_type == "church" && name == $name][0]{
+    name,
+    about,
     phone,
-    "address" : {
-      "line1" : address_line1,
+    "socials": {
+      facebook,
+      twitter,
+      instagram
+    },
+    logo{asset->{url, metadata{lqip, dimensions}}},
+    "address": {
+      address1,
       city,
       state,
       zip
     },
-  },
-  "socialMedia" : {
-    facebook,
-    instagram,
-    twitter,
-    youtube
-  },
-  "plausible" : {
-    dataDomain
-  },
-  "googleAnalytics" : {
-    googleanalyticsId,
-    googleSiteVerificationId,
-  },
-  "openGraph" : {
-    ogTitle,
-    ogDescription,
-    ogImage
+    "staff": {
+      elders[]->{...,image{asset->{url, metadata{lqip, dimensions}}}},
+      deacons[]->{...,image{asset->{url, metadata{lqip, dimensions}}}},
+      supports[]->{...,image{asset->{url, metadata{lqip, dimensions}}}}
+    },
   }
-}
 `;
 
 export const getPageData = `
@@ -90,4 +78,16 @@ export const getPost = `
       _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
     }
   }
+`
+
+export const getEvents = `
+*[_type == "event"][] | order(date desc){
+  title,
+  coverImage{asset->{url, metadata{lqip, dimensions}}},
+  tag[]->{title},
+  date,
+  content[]{...,
+    _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
+  }
+}
 `

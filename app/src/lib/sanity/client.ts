@@ -2,7 +2,7 @@ import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
 
-const projectId = 'r9avj1jo';
+const projectId = '0edefeh9';
 const dataset = 'production';
 const apiVersion = '2023-05-16';
 

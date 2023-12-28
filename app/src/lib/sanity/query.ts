@@ -55,11 +55,12 @@ export const getPageData = `
 export const getPosts = `
 *[_type == "post"][$min...$max] | order(publishedAt desc) {
     title,
+    slug,
     coverImage,
     tags[]->{title},
     category[]->{title},
     date,
-    author->{name, image, slug},
+    author->{name, slug, image},
     content[],
     "excerpt": array::join(string::split((pt::text(content)), "")[0..255], "") + "..."
   }

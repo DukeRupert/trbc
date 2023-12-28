@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { LayoutServerData } from './$types';
+
 	// Tailwind styles
 	import '../app.postcss';
+	
 	// Skeleton Popup reqs
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';

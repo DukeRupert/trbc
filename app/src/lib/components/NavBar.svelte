@@ -7,7 +7,7 @@
 	import { Menu } from 'lucide-svelte';
 	import { createDialog, melt } from '@melt-ui/svelte';
 	import { fly, type FlyParams, fade, type FadeParams } from 'svelte/transition';
-	import SanityImage from '$lib/sanity/SanityImage/SanityImage.svelte';
+	import SanityImage from '$lib/sanity/SanityImage/Image.svelte';
 
 	export let logo: Image;
 	export let socials: Socials;

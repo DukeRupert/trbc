@@ -3,7 +3,6 @@
 	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
-	import { page } from '$app/stores';
 
 	export let data: PageData;
 	// Superforms client API:
@@ -12,6 +11,7 @@
 	);
 	// Snapshot functionality
 	export const snapshot = { capture, restore };
+
 </script>
 
 <svelte:head>

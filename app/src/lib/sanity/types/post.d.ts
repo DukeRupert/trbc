@@ -1,24 +1,25 @@
-// post schema
 export type Post = {
+	coverImage: Image;
+	slug: Slug;
+	tags: Category[];
 	category: Category[];
 	date: Date;
 	author: Author;
 	content: Content[];
 	title: string;
-	coverImage: Image;
-	tags: Category[];
 	excerpt: string;
 };
 
 export type Author = {
 	name: string;
-	image: Image;
 	slug: Slug;
+	image: Image;
 };
 
 export type Image = {
 	_type: string;
 	asset: Asset;
+	alt: string;
 };
 
 export type Asset = {
@@ -37,18 +38,15 @@ export type Category = {
 
 export type Content = {
 	_type: string;
-	style?: string;
+	style: string;
 	_key: string;
-	markDefs?: any[];
-	children?: Child[];
-	alt?: string;
-	caption?: string;
-	asset?: Asset;
+	markDefs: any[];
+	children: Child[];
 };
 
 export type Child = {
-	_type: string;
-	marks: any[];
 	text: string;
 	_key: string;
+	_type: string;
+	marks: any[];
 };

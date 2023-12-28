@@ -1,9 +1,10 @@
 <script lang="ts">
-	import type { Post } from '$lib/sanity/types/post';
-	import { formatDate, fromISOtoDatetime } from '$lib/utils';
-	import SanityImage from '$lib/sanity/SanityImage/SanityImage.svelte';
-	export let data: Post;
-	const { coverImage, title, author, excerpt, category, tags, date } = data;
+import type {Post} from '$lib/sanity/types/post'
+import { formatDate, fromISOtoDatetime } from '$lib/utils';
+import SanityImage from '$lib/sanity/SanityImage/Image.svelte';
+
+export let data: Post;
+$:({title, slug, excerpt, coverImage, tags, category, date, author, content} = data)
 </script>
 
 <article class="relative isolate flex flex-col gap-8 lg:flex-row">
@@ -55,3 +56,42 @@
 		</div>
 	</div>
 </article>
+
+<article class="flex max-w-xl flex-col items-start justify-between">
+        <div class="flex items-center gap-x-4 text-xs">
+          <time datetime={fromISOtoDatetime(date.toString())} class="text-gray-500">{formatDate(date)}</time>
+          {#if category.length > 0}
+            {#each category as c}
+              <a href={`/posts?tag=${c.title}`} class="chip variant-soft hover:variant-filled"><span>{c.title}</span></a>
+            {/each}
+          {/if}
+        </div>
+        <div class="group relative">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href={slug.current ? `/posts/${slug.current}` : '/posts/error'}>
+              <span class="absolute inset-0"></span>
+              {title}
+            </a>
+          </h3>
+          <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{excerpt}</p>
+        </div>
+        <div class="mt-3 px-2 flex items-center gap-x-4 text-xs">
+          {#if tags.length > 0}
+            {#each tags as t}
+              <a href={`/posts?tag=${t.title}`} class="chip variant-ringed hover:variant-filled"><span>#{t.title}</span></a>
+            {/each}
+          {/if}
+        </div>
+        <div class="relative mt-8 flex items-center gap-x-4">
+          <SanityImage image={author.image} maxWidth={40} cls={'h-10 w-10 rounded-full bg-gray-50'}/>
+          <div class="text-sm leading-6">
+            <p class="font-semibold text-gray-900">
+              <a href={author.slug.current}>
+                <span class="absolute inset-0"></span>
+                {author.name}
+              </a>
+            </p>
+            <!-- <p class="text-gray-600">Co-Founder / CTO</p> -->
+          </div>
+        </div>
+      </article>

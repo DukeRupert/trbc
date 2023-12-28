@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { quadOut } from 'svelte/easing';
 	import type { Socials } from '$lib/sanity/types/churchData';
 	import type { Image } from '$lib/sanity/types/image';
+	import type { Link } from '$lib/types/app';
+	import { quadOut } from 'svelte/easing';
 	import { page, navigating } from '$app/stores';
 	import { Menu } from 'lucide-svelte';
 	import { createDialog, melt } from '@melt-ui/svelte';
@@ -10,14 +11,7 @@
 
 	export let logo: Image;
 	export let socials: Socials;
-
-	const links = [
-		{ label: 'Events', href: '/events' },
-		{ label: 'Posts', href: '/posts' },
-		{ label: 'Why the Ridge', href: '/why-the-ridge' },
-		{ label: 'Statement of Faith', href: '/statement-of-faith' },
-		{ label: 'Contact Us', href: '/contact-us' }
-	];
+	export let links: Link[] = [];
 
 	const flyParams: FlyParams = {
 		x: 500,

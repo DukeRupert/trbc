@@ -11,7 +11,6 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import { page } from '$app/stores';
 	import { superForm } from 'sveltekit-superforms/client';
-	import { trigger_success_toast, trigger_error_toast } from '$lib/utils';
 	import type { InputValue } from '@portabletext/svelte/ptTypes';
 	import type { PageData } from './$types';
 
@@ -20,15 +19,6 @@
 
 	// Client API:
 	const { form, errors, constraints, posted, enhance } = superForm(data.form);
-
-	$: if ($posted) {
-		if ($page.status == 200) {
-			trigger_success_toast('Message sent!');
-		}
-		if ($page.status == 400) {
-			trigger_error_toast();
-		}
-	}
 
 	console.log(data);
 </script>

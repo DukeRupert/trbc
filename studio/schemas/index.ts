@@ -1,5 +1,6 @@
 import blockContent from './objects/blockContent'
 import category from './documents/category'
+import tags from './documents/tags'
 import post from './documents/post'
 import event from './documents/event'
 import author from './documents/author'
@@ -26,6 +27,7 @@ export const schemaTypes = [
   event,
   author,
   category,
+  tags,
   blockContent,
   siteMeta,
   openGraph,

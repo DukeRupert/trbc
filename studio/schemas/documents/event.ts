@@ -3,6 +3,7 @@ import { format, parseISO } from "date-fns";
 import { defineField, defineType, defineArrayMember } from "sanity";
 import authorType from "./author";
 import categoryType from './category'
+import tagsType from './tags'
 
 /**
  * This file is the schema definition for a post.
@@ -81,13 +82,20 @@ export default defineType({
         }),
       ],
     }),
-    defineField({
-      name: "category",
-      title: "Categories",
-      description: "Use categories to group posts or events together.",
-      type: "array",
-      of: [defineArrayMember({ type: "reference", to: { type: categoryType.name } })],
+  defineField({
+      name: 'category',
+      title: 'Categories',
+      description: 'Use these to create collections.',
+      type: 'array',
+      of: [defineArrayMember({type: 'reference', to: {type: categoryType.name}})],
     }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      description: 'Use these to help user find similar content.',
+      type: 'array',
+      of: [defineArrayMember({type: 'reference', to: {type: tagsType.name}})],
+    }), 
     defineField({
       name: "author",
       title: "Author",

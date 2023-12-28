@@ -1,13 +1,15 @@
 // Layout query for church data
-export const getChurchData = `
-  *[_type == "church" && name == $name][0]{
-    name,
-    about,
+export const getMetaData = `
+  *[_type == "siteMeta"][0]{
+    business_name,
+    site_name,
+    description,
     phone,
     "socials": {
       facebook,
       twitter,
-      instagram
+      instagram,
+      youtube
     },
     logo,
     "address": {
@@ -15,11 +17,6 @@ export const getChurchData = `
       city,
       state,
       zip
-    },
-    "staff": {
-      elders[]->{...,image{asset->{url, metadata{lqip, dimensions}}}},
-      deacons[]->{...,image{asset->{url, metadata{lqip, dimensions}}}},
-      supports[]->{...,image{asset->{url, metadata{lqip, dimensions}}}}
     },
   }
 `;
@@ -65,7 +62,7 @@ export const getPosts = `
       _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
     }
   }
-`
+`;
 
 // Get post based on slug
 export const getPost = `
@@ -78,7 +75,7 @@ export const getPost = `
       _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
     }
   }
-`
+`;
 
 export const getEvents = `
 *[_type == "event"][] | order(date desc){
@@ -90,4 +87,4 @@ export const getEvents = `
     _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
   }
 }
-`
+`;

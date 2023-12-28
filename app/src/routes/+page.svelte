@@ -16,6 +16,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	const blocks = data?.page?.blocks as InputValue;
 
 	// Client API:
 	const { form, errors, constraints, posted, enhance } = superForm(data.form);
@@ -40,7 +41,22 @@
 	></script>
 </svelte:head>
 
-<!-- <Seo type="page" {...data?.page?.seo} url={$page.url.href} /> -->
+<Seo type="page" {...data?.page?.seo} url={$page.url.href} />
+<PortableText
+	value={blocks}
+	components={{
+		types: {
+			hero: Hero,
+			features: Features,
+			team: Team,
+			reviews: Reviews,
+			pageHeader: PageHeader,
+			posts: Posts,
+			cta: Cta,
+			gallery: OurFamily
+		}
+	}}
+/>
 <div class="relative w-full">
 	<div class="absolute inset-0">
 		<div class="absolute inset-y-0 left-0 w-1/2" />

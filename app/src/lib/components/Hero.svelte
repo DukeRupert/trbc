@@ -47,7 +47,7 @@
 							<a href={value.primaryHref} class="btn variant-filled-primary">{value.primaryText}</a>
 						{/if}
 						{#if value?.isSecondaryAction && value?.secondaryText && value?.secondaryHref}
-							<a href={value.secondaryHref} class="btn variant-ringed-primary"
+							<a href={value.secondaryHref} class="btn variant-outline-primary"
 								>{value.secondaryText} <span aria-hidden="true">→</span></a
 							>
 						{/if}

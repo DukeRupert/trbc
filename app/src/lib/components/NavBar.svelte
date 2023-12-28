@@ -14,7 +14,7 @@
 	const links = [
 		{ label: 'Events', href: '/events' },
 		{ label: 'Posts', href: '/posts' },
-		{ label: 'About Us', href: '/about-us' },
+		{ label: 'Why the Ridge', href: '/why-the-ridge' },
 		{ label: 'Statement of Faith', href: '/statement-of-faith' },
 		{ label: 'Contact Us', href: '/contact-us' }
 	];
@@ -46,10 +46,12 @@
 <header class="bg-white">
 	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
-			<a href="#" class="-m-1.5 p-1.5">
-				<span class="sr-only">Your Company</span>
-				<SanityImage image={logo} maxWidth={100} />
-			</a>
+			{#if path !== '/'}
+				<a href="/" class="-m-1.5 p-1.5">
+					<span class="sr-only">Your Company</span>
+					<SanityImage image={logo} maxWidth={100} />
+				</a>
+			{/if}
 		</div>
 		<div class="flex lg:hidden">
 			<button
@@ -96,7 +98,7 @@
 				class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 			>
 				<div class="flex items-center justify-between">
-					<a href="#" class="-m-1.5 p-1.5">
+					<a href="/" class="-m-1.5 p-1.5">
 						<span class="sr-only">Your Company</span>
 						<SanityImage image={logo} maxWidth={100} />
 					</a>
@@ -131,12 +133,19 @@
 								>
 							{/each}
 						</div>
-						<div class="py-6">
-							<a
-								href="#"
-								class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-								>Log in</a
-							>
+						<div class="flex flex-col space-y-6 mt-6">
+							<div class="mt-6 w-full">
+								<a
+									href="https://theridgebiblechurch.breezechms.com/give/online"
+									class="btn variant-filled-primary w-full">Give</a
+								>
+							</div>
+							<div class="w-full">
+								<a
+									href="https://theridgebiblechurch.breezechms.com/login"
+									class="btn variant-outline-primary w-full">Log in</a
+								>
+							</div>
 						</div>
 					</div>
 				</div>

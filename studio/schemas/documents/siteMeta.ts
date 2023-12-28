@@ -39,8 +39,6 @@ export default defineType({
       name: 'url',
       description: 'Most likely either the url of the page or its canonical url',
       validation: (Rule) => Rule.required(),
-
-      // fieldset: "basic"
     }),
     defineField({
       type: 'string',
@@ -58,8 +56,8 @@ export default defineType({
     }),
     defineField({
       type: 'string',
-      name: 'address_line1',
-      title: 'Primary Address',
+      name: 'address1',
+      title: 'Street Address',
       group: ['business'],
 	  fieldset: 'address'
     }),

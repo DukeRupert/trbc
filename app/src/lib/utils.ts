@@ -1,21 +1,5 @@
-import { drawerStore } from '@skeletonlabs/skeleton';
-import type { DrawerSettings } from '@skeletonlabs/skeleton';
-import type { ToastSettings } from '@skeletonlabs/skeleton';
-import { toastStore } from '@skeletonlabs/skeleton';
-
-// Drawer
-interface Id {
-	id: string;
-}
-
-export function drawerOpen(id: Id): void {
-	const settings: DrawerSettings = id || { id: 'navigation' };
-	drawerStore.open(settings);
-}
-
-export function drawerClose(): void {
-	drawerStore.close();
-}
+import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 
 // Toast
 // const tSuccess: ToastSettings = {

@@ -1,9 +1,16 @@
+import { join } from 'path';
+import type { Config } from 'tailwindcss';
+
+// 1. Import the Skeleton plugin
+import { skeleton } from '@skeletonlabs/tw-plugin';
+
 /** @type {import('tailwindcss').Config}*/
 const config = {
 	darkMode: 'class',
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+		// 3. Append the path to the Skeleton package
+		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 
 	theme: {
@@ -20,10 +27,10 @@ const config = {
 			keyframes: {
 				'fade-in': {
 					from: {
-						opacity: 0
+						opacity: '0'
 					},
 					to: {
-						opacity: 1
+						opacity: '1'
 					}
 				},
 				marquee: {
@@ -47,8 +54,10 @@ const config = {
 	plugins: [
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/typography'),
-		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
+		skeleton({
+			themes: { preset: ['skeleton'] }
+		})
 	]
-};
+} satisfies Config;
 
-module.exports = config;
+export default config;

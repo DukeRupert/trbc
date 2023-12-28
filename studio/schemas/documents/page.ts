@@ -17,10 +17,10 @@ export default defineType({
 			name: 'title',
 			title: 'Title',
 			description:
-				'Make it as enticing as possible to encourage interaction on social feeds and Google search results. Ideally between 15 & 70 characters.',
+				'Make it as enticing as possible to encourage interaction on social feeds and Google search results. Ideally between 3 & 70 characters.',
 			type: 'string',
 			group: ['data'],
-			validation: (Rule) => Rule.required().min(15).max(70)
+			validation: (Rule) => Rule.required().min(3).max(70)
 		}),
 		defineField({
 			name: 'metaDescription',

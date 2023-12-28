@@ -55,12 +55,11 @@ export const getPageData = `
 export const getPosts = `
 *[_type == "post"][$min...$max] | order(publishedAt desc) {
     title,
-    coverImage{asset->{url, metadata{lqip, dimensions}}},
-    tag[]->{title},
+    coverImage,
+    tags[]->{title},
+    category[]->{title},
     date,
-    content[]{...,
-      _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
-    }
+    content[]
   }
 `;
 

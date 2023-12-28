@@ -1,70 +1,38 @@
-// Post
-export interface Post {
-	_createdAt: string;
-	_id: string;
-	_rev: string;
-	_type: string;
-	_updatedAt: string;
-	body: Body[];
-	categories: Category[];
-	excerpt: string;
-	mainImage: MainImage;
-	publishedAt: string;
-	slug: Slug;
-	title: string;
+// post schema
+export type Post = {
+    title:      string;
+    coverImage: CoverImage;
+    tags:       Category[];
+    category:   Category[];
+    date:       Date;
+    content:    Content[];
 }
 
-export interface Body {
-	_key: string;
-	_type: BodyType;
-	children: Child[];
-	markDefs: any[];
-	style: Style;
-	level?: number;
-	listItem?: ListItem;
+export type Category = {
+    title: string;
 }
 
-export enum BodyType {
-	Block = 'block'
+export type Content = {
+    _key:     string;
+    markDefs: any[];
+    children: Child[];
+    _type:    string;
+    style:    string;
 }
 
-export interface Child {
-	_key: string;
-	_type: ChildType;
-	marks: string[];
-	text: string;
+export type Child = {
+    text:  string;
+    _key:  string;
+    _type: string;
+    marks: any[];
 }
 
-export enum ChildType {
-	Span = 'span'
+export type CoverImage = {
+    _type: string;
+    asset: Asset;
 }
 
-export enum ListItem {
-	Bullet = 'bullet'
-}
-
-export enum Style {
-	H2 = 'h2',
-	Normal = 'normal'
-}
-
-export interface Category {
-	_key: string;
-	_ref: string;
-	_type: string;
-}
-
-export interface MainImage {
-	_type: string;
-	asset: Asset;
-}
-
-export interface Asset {
-	_ref: string;
-	_type: string;
-}
-
-export interface Slug {
-	_type: string;
-	current: string;
+export type Asset = {
+    _ref:  string;
+    _type: string;
 }

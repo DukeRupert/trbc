@@ -23,7 +23,7 @@
 </script>
 
 <NavBar logo={data.metaData.logo} socials={data.metaData.socials} {links} />
-<main class="isolate">
+<main class="isolate min-h-screen">
 	<slot />
 </main>
 <Footer data={data.metaData} {links} />

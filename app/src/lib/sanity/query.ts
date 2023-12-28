@@ -59,7 +59,9 @@ export const getPosts = `
     tags[]->{title},
     category[]->{title},
     date,
-    content[]
+    author->{name, image, slug},
+    content[],
+    "excerpt": array::join(string::split((pt::text(content)), "")[0..255], "") + "..."
   }
 `;
 

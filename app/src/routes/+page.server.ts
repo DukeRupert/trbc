@@ -15,7 +15,7 @@ const schema = z.object({
 export const load = async ({ url }) => {
 	const { pathname } = url;
 
-	const data = await S.getPageData(pathname);
+	const data = await S.getPage(pathname);
 
 	// Server API:
 	const form = await superValidate(schema);

@@ -1,10 +1,9 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
-import { getMetaData, getPageData, getPost, getPosts } from './query';
-import type { MetaData } from './types/SiteSettings';
-import type { SanityPage } from '$lib/sanity/types/page';
-import type { Post } from './types/post';
+import { getMetaData, type MetaData } from './queries';
+import { getPost, getPosts, type Post } from './queries'
+import { getPage, type SanityPage } from './queries'
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
 
 export type ReqMetaData = MetaData;
@@ -65,8 +64,8 @@ export class SanityClient {
 		return await this.client.fetch(q, p);
 	}
 
-	async getPageData(pathname: string): Promise<SanityPage> {
-		const q = getPageData;
+	async getPage(pathname: string): Promise<SanityPage> {
+		const q = getPage;
 		const p = {
 			pathname
 		};

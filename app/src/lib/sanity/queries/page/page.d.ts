@@ -1,18 +1,18 @@
 // SanityPage
-import type { Features } from './features';
-import type { Hero } from './hero';
-import type { Team } from './team';
-import type { PageHeader } from './header';
-import type { Reviews } from './reviews';
-import type { Posts } from './posts';
-import type { Cta } from './cta';
+import type { Features } from './objects/features';
+import type { Hero } from './objects/hero';
+import type { Team } from './objects/team';
+import type { PageHeader } from './objects/header';
+import type { Reviews } from './objects/reviews';
+import type { Cta } from './objects/cta';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
+
 export interface SanityPage {
 	blocks: Block[];
 	seo: SEO;
 }
 
-export type Block = Hero | Team | PageHeader | Reviews | Posts | Cta;
+export type Block = Hero | Team | PageHeader | Reviews | Cta;
 
 export interface Feature {
 	_key: string;
@@ -85,3 +85,5 @@ export interface OpenGraph {
 	site_name: string;
 	url: string;
 }
+
+export default SanityPage

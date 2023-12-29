@@ -50,3 +50,5 @@ export type Child = {
 	_type: string;
 	marks: any[];
 };
+
+export default Post;

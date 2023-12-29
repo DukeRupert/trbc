@@ -1,5 +1,3 @@
-// siteMeta schema
-
 export type MetaData = {
     description:   string;
     phone:         number;
@@ -34,3 +32,5 @@ export type Socials = {
     instagram: null;
     youtube:   string;
 }
+
+export default MetaData

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Post } from './post';
+	import type { Post } from '$lib/sanity/queries/post/post';
 	import type { Orientation } from './params';
 	import Card from './Card.svelte';
 
@@ -10,7 +10,7 @@
 </script>
 
 {#if orientation === 'horizontal'}
-	<div class="bg-white py-24 sm:py-32">
+	<div class="bg-surface-50 dark:bg-surface-900 py-24 sm:py-32">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl lg:max-w-4xl">
 				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>

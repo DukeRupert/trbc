@@ -1,12 +1,14 @@
 export const getPost = `
-  *[_type == "post" && slug.current == $slug]{
+  *[_type == "post" && slug.current == $slug][0]{
     title,
-    coverImage{asset->{url, metadata{lqip, dimensions}}},
-    tag[]->{title},
+    slug,
+    coverImage,
+    tags[]->{title, slug},
+    category[]->{title},
     date,
-    content[]{...,
-      _type == 'image' => @{asset->{url, metadata{lqip, dimensions}}},
-    }
+    author->{name, slug, image},
+    content[],
+    "excerpt": array::join(string::split((pt::text(content)), "")[0..255], "") + "..."
   }
 `;
 

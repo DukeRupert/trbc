@@ -4,7 +4,7 @@ export const getPosts = `
       title,
       slug,
       coverImage,
-      tags[]->{title},
+      tags[]->{title, slug},
       category[]->{title},
       date,
       author->{name, slug, image},

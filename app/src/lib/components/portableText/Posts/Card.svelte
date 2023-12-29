@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Post } from '$lib/sanity/types/post';
+	import type { Post } from '$lib/sanity/queries/post/post';
 	import { formatDate, fromISOtoDatetime } from '$lib/utils';
 	import SanityImage from '$lib/sanity/SanityImage/Image.svelte';
 
@@ -37,7 +37,7 @@
 			</div>
 			<div class="group relative">
 				<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-					<a href="#">
+					<a href={`/posts/${slug.current}`}>
 						<span class="absolute inset-0" />
 						{title}
 					</a>
@@ -93,7 +93,7 @@
 			</div>
 			<div class="group relative">
 				<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-					<a href="#">
+					<a href={`/posts/${slug.current}`}>
 						<span class="absolute inset-0" />
 						{title}
 					</a>

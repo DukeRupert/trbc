@@ -1,4 +1,4 @@
-import type { SanityImage } from './types';
+import type { Image } from '$lib/sanity/queries/common';
 import S from '../'
 import { getImageDimensions } from './getImageDimensions';
 
@@ -13,7 +13,7 @@ type GetImagePropArguments = {
 	 * The image's reference object.
 	 * Example: {asset: {_ref: string}, hotspot: {...}, crop: {...} }
 	 */
-	image: SanityImage;
+	image: Image;
 	// Number of the largest width it can assume in the design
 	userMaxWidth: number;
 	/**

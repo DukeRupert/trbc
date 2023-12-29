@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
-	import type { Hero } from '$lib/sanity/types/hero';
+	import type { Hero } from '$lib/sanity/queries/page/types';
 	import S from '$lib/sanity'
 
 	export let portableText: CustomBlockComponentProps<Hero>;
 	const { value } = portableText;
 </script>
 
-<div class="relative bg-white">
+<div class="relative">
 	<div class="mx-auto max-w-7xl pb-16 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
 		<div class="px-6 pt-16 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-48 lg:pb-56 xl:col-span-6">
 			<div class="mx-auto max-w-2xl lg:mx-0">

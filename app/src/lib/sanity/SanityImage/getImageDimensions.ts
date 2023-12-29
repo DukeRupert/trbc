@@ -1,6 +1,6 @@
-import type { SanityImage } from './types';
+import type { Image } from '$lib/sanity/queries/common';
 
-export function getImageDimensions(image: SanityImage) {
+export function getImageDimensions(image: Image) {
   if (!image?.asset?._ref) {
     return
   }

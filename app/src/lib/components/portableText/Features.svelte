@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
-	import type { Features } from '$lib/sanity/types/features';
+	import type { Features } from '$lib/sanity/queries/page/types'
 	import { SanityImage } from '$lib/sanity'
-	import FadeIn from './FadeIn.svelte';
+	import FadeIn from '../FadeIn.svelte';
 
 	export let portableText: CustomBlockComponentProps<Features>;
 	const { value } = portableText;
 </script>
 
-<div id="services" class="bg-white py-16 sm:py-32">
+<div class="bg-surface-50 dark:bg-surface-900 mt-32 sm:mt-56">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<FadeIn>
 			<div class="mx-auto max-w-2xl lg:text-center">

@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
-	import type { Team } from '$lib/sanity/types/team';
+	import type { Team } from '$lib/sanity/queries/page/types';
 	import S from '$lib/sanity'	
-	import FadeIn from './FadeIn.svelte';
+	import FadeIn from '../FadeIn.svelte';
 
 	export let portableText: CustomBlockComponentProps<Team>;
 	const { value } = portableText;
 </script>
 
-<div id="staff" class="bg-white py-24 md:py-32 lg:py-40">
+<div id="staff" class="py-24 md:py-32 lg:py-40">
 	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-y-20 gap-x-8 px-6 lg:px-8 xl:grid-cols-3">
 		<FadeIn>
 			<div

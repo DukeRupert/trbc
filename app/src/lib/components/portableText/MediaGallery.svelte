@@ -2,7 +2,7 @@
 	import S from '$lib/sanity'	
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
 	import type { MediaGallery } from '$lib/sanity/types/mediaGallery';
-	import FadeIn from './FadeIn.svelte';
+	import FadeIn from '../FadeIn.svelte';
 	export let portableText: CustomBlockComponentProps<MediaGallery>;
 	const { value } = portableText;
 </script>

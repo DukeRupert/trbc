@@ -1,13 +1,14 @@
 <script lang="ts">
-	import OurFamily from '$lib/components/OurFamily.svelte';
-	import Hero from '$lib/components/Hero.svelte';
-	import Features from '$lib/components/Features.svelte';
-	import Team from '$lib/components/Team.svelte';
-	import Reviews from '$lib/components/Reviews/index.svelte';
-	import PageHeader from '$lib/components/PageHeader.svelte';
-	import Cta from '$lib/components/cta/SimpleCenteredOnBrand.svelte';
-	import Posts from '$lib/components/Posts/Posts.svelte';
-	import { PortableText } from '@portabletext/svelte';
+	// import OurFamily from '$lib/components/OurFamily.svelte';
+	// import Hero from '$lib/components/Hero.svelte';
+	// import Features from '$lib/components/Features.svelte';
+	// import Team from '$lib/components/Team.svelte';
+	// import Reviews from '$lib/components/Reviews/index.svelte';
+	// import PageHeader from '$lib/components/PageHeader.svelte';
+	// import Cta from '$lib/components/cta/SimpleCenteredOnBrand.svelte';
+	// import Posts from '$lib/components/Posts/Posts.svelte';
+	// import { PortableText } from '@portabletext/svelte';
+	import PortableText from '$lib/components/portableText/index.svelte'
 	import Seo from '$lib/components/Seo.svelte';
 	import { page } from '$app/stores';
 	import { superForm } from 'sveltekit-superforms/client';
@@ -32,30 +33,17 @@
 </svelte:head>
 
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />
-<PortableText
-	value={blocks}
-	components={{
-		types: {
-			hero: Hero,
-			features: Features,
-			team: Team,
-			reviews: Reviews,
-			pageHeader: PageHeader,
-			posts: Posts,
-			cta: Cta,
-			gallery: OurFamily
-		}
-	}}
-/>
-<div class="relative w-full">
+<PortableText data={blocks} />
+
+<div class="bg-surface-50 dark:bg-surface-900 relative w-full">
 	<div class="absolute inset-0">
 		<div class="absolute inset-y-0 left-0 w-1/2" />
 	</div>
 	<div
-		class="relative mx-auto max-w-7xl px-6 py-16 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-5"
+		class="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24 lg:grid lg:grid-cols-5"
 	>
 		<div class="lg:col-span-2">
-			<div class="mx-auto max-w-lg">
+			<div class="mx-auto max-w-2xl">
 				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>
 				<p class="mt-6 text-xl leading-8 text-gray-600">
 					We would be happy to answer any questions you may have or listen if you have a need that
@@ -112,7 +100,7 @@
 			</div>
 		</div>
 		<div id="contact-us" class="py-16 lg:col-span-3 lg:py-24 xl:pl-12">
-			<div class="mx-auto max-w-lg lg:max-w-none">
+			<div class="mx-auto max-w-2xl lg:max-w-none">
 				<form use:enhance method="POST" class="grid grid-cols-1 gap-y-6">
 					<div>
 						<label for="name" class="sr-only">Name</label>

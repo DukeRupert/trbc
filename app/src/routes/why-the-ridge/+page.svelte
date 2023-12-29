@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import Seo from '$lib/components/Seo.svelte';
-	import Cta from '$lib/components/Cta.svelte';
+	import Cta from '$lib/components/portableText/Cta.svelte';
 	import { page } from '$app/stores';
 
 	export let data: PageData;
@@ -9,7 +9,7 @@
 
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />
 
-<div class="bg-white pt-32 lg:px-8">
+<div class="bg-surface-50 dark:bg-surface-900 pt-32 lg:px-8">
 	<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
 		<div class="px-6 lg:contents">
 			<div class="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20">
@@ -84,5 +84,4 @@
 			</div>
 		</div>
 	</div>
-	<Cta />
 </div>

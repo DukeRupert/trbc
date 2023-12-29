@@ -1,13 +1,13 @@
 <script lang="ts">
 	import SocialMedia from '$lib/components/SocialMedia.svelte';
-	import type { MetaData } from '$lib/sanity/types/SiteSettings';
+	import type { MetaData } from '$lib/sanity/queries/metaData/types';
 	import type { Link } from '$lib/types/app';
 	export let data: MetaData;
 	export let links: Link[] = [];
 	const { business_name, socials } = data;
 </script>
 
-<footer class="bg-white">
+<footer class="bg-surface-50 dark:bg-surface-900">
 	<hr />
 	<div class="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
 		<nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">

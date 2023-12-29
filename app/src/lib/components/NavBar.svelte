@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { Socials } from '$lib/sanity/types/churchData';
-	import type { Image } from '$lib/sanity/types/image';
+	import type MetaData from '$lib/sanity/queries/metaData/types';
 	import type { Link } from '$lib/types/app';
 	import { quadOut } from 'svelte/easing';
 	import { page, navigating } from '$app/stores';
@@ -9,8 +8,8 @@
 	import { fly, type FlyParams, fade, type FadeParams } from 'svelte/transition';
 	import SanityImage from '$lib/sanity/SanityImage/Image.svelte';
 
-	export let logo: Image;
-	export let socials: Socials;
+	export let data: MetaData;
+	const { logo, socials } = data;
 	export let links: Link[] = [];
 
 	const flyParams: FlyParams = {
@@ -37,7 +36,7 @@
 	$: if ($navigating) open.set(false);
 </script>
 
-<header class="bg-white">
+<header class="bg-surface-50 dark:bg-surface-900">
 	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
 			{#if path !== '/'}
@@ -89,7 +88,7 @@
 			<div
 				use:melt={$content}
 				transition:fly={flyParams}
-				class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+				class="bg-surface-100 dark:bg-surface-800 fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 			>
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5">

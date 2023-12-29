@@ -1,4 +1,5 @@
 // SanityPage
+import type { Image } from '../common';
 import type { Features } from './objects/features';
 import type { Hero } from './objects/hero';
 import type { Team } from './objects/team';
@@ -29,17 +30,6 @@ export interface Icon {
 	size: number;
 	svg: string;
 	title: string;
-}
-
-export interface Image {
-	_type: string;
-	alt: string;
-	asset: Asset;
-}
-
-export interface Asset {
-	_ref: string;
-	_type: string;
 }
 
 export interface Logo {
@@ -86,4 +76,5 @@ export interface OpenGraph {
 	url: string;
 }
 
+export { Features, Cta, Hero, Team, PageHeader }
 export default SanityPage

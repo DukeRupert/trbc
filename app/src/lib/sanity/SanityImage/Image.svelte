@@ -12,7 +12,7 @@
 <img
   class={cls}
   loading={priority ? "eager" : "lazy"}
-  alt={image.alt || alt}
+  alt={image?.alt ?? alt}
   {
     ...getImageProps({
       image,

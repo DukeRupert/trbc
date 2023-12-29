@@ -1,67 +1,50 @@
 <script lang="ts">
-	import Sanity from '$lib/sanity/client';
-	import { getPosts } from '$lib/sanity/query';
-	import PostCard from './PostCard.svelte';
-	import type { Post } from '$lib/sanity/types/post';
-	import type { Posts } from '$lib/sanity/types/posts';
-	import type { CustomBlockComponentProps } from '@portabletext/svelte';
+	import type { Post } from './post';
+	import type { Orientation } from './params';
+	import Card from './Card.svelte';
 
-	export let portableText: CustomBlockComponentProps<Posts>;
-	const { value } = portableText;
-
-	let { title: tag } = value?.defaultTag ?? 'blog';
-	let max = value?.max ?? 6;
-	$: parameters = { tag, max };
-
-	$: fetchPosts = async () => {
-		const posts: Post[] = await Sanity.fetch(getPosts, parameters);
-
-		if (posts) {
-			return posts;
-		} else {
-			return [];
-		}
-	};
-
-	function changeTag(event: MouseEvent) {
-		tag = event?.target?.id;
-	}
+	export let posts: Post[] = [];
+	export let title: string = 'From the blog';
+	export let description: string = 'Learn how to grow your business with our expert advice.';
+	export let orientation: Orientation = 'horizontal';
 </script>
 
-<div class="relative">
-	{#if value?.searchTags && value?.searchTags.length > 0}
-		<div class="max-w-md flex space-x-4 py-6">
-			{#each value?.searchTags as { title }}
-				<!-- content here -->
-				<button
-					id={title}
-					type="button"
-					on:click={changeTag}
-					class="chip {title == tag ? 'variant-filled-primary' : 'variant-filled-surface'}"
-					>{title}</button
-				>
-			{/each}
-		</div>
-	{/if}
-
-	<div
-		class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8 py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8"
-	>
-		{#if tag}
-			{#await fetchPosts()}
-				<!-- promise is pending -->
-				<p>Loading...</p>
-			{:then posts}
-				<!-- promise was fulfilled -->
-				{#if posts.length > 0}
-					<!-- content here -->
-					{#each posts as post (post.slug.current)}
-						<PostCard {post} />
-					{/each}
-				{:else}
-					<p>Something went wrong...</p>
+{#if orientation === 'horizontal'}
+	<div class="bg-white py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl lg:max-w-4xl">
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
+				{#if description}
+					<p class="mt-2 text-lg leading-8 text-gray-600">
+						{description}
+					</p>
 				{/if}
-			{/await}
-		{/if}
+				<div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+					{#each posts as post, i}
+						<Card data={post} orientation="vertical" />
+					{/each}
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
+{:else}
+	<div class="bg-white py-24 sm:py-32 min-h-screen">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl lg:mx-0">
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
+				{#if description}
+					<p class="mt-2 text-lg leading-8 text-gray-600">
+						{description}
+					</p>
+				{/if}
+			</div>
+			<div
+				class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+			>
+				{#each posts as post, i}
+					<Card data={post} />
+				{/each}
+			</div>
+		</div>
+	</div>
+{/if}

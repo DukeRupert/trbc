@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
 	import type { Team } from '$lib/sanity/types/team';
-	import { urlFor } from '$lib/sanity/client';
+	import S from '$lib/sanity'	
 	import FadeIn from './FadeIn.svelte';
 
 	export let portableText: CustomBlockComponentProps<Team>;
@@ -38,7 +38,7 @@
 						<li>
 							<img
 								class="aspect-square w-full rounded-2xl object-contain"
-								src={urlFor(image?.asset).size(400, 400).format('webp').url()}
+								src={S.urlFor(image?.asset).size(400, 400).format('webp').url()}
 								alt={image?.alt}
 								height="400"
 								width="400"

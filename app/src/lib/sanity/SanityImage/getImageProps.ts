@@ -1,6 +1,6 @@
-import { getImageDimensions } from './getImageDimensions';
 import type { SanityImage } from './types';
-import { imageBuilder } from '../client';
+import S from '../'
+import { getImageDimensions } from './getImageDimensions';
 
 const LARGEST_VIEWPORT = 1920; // Retina sizes will take care of 4k (2560px) and other huge screens
 const DEFAULT_MIN_STEP = 0.1; // 10%
@@ -41,7 +41,7 @@ export default function getImageProps({
 	const maxWidth = typeof userMaxWidth === 'number' ? userMaxWidth : LARGEST_VIEWPORT;
 
 	// For all image variations, we'll use an auto format and prevent scaling it over its max dimensions
-	const builder = imageBuilder.image(image).fit('max').auto('format');
+	const builder = S.urlFor(image);
 
 	const imageDimensions = getImageDimensions(image);
 

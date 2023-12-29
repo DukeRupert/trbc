@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SvelteSeo from 'svelte-seo';
-	import { urlFor } from '$lib/sanity/client';
+	import S from '$lib/sanity'	
 	import type { OpenGraph, Image } from '$lib/sanity/types/page';
 
 	// determines schema choice
@@ -39,7 +39,7 @@
 			type: 'website',
 			images: [
 				{
-					url: urlFor(openGraph?.ogImage?.asset).width(width).height(height).format('webp').url(),
+					url: S.urlFor(openGraph?.ogImage?.asset).width(width).height(height).format('webp').url(),
 					width: width,
 					height: height,
 					alt: openGraph?.ogTitle
@@ -58,11 +58,11 @@
 			url: url,
 			type: 'article',
 			article: {
-				publishedTime: publishedAt
+				published_time: publishedAt
 			},
 			images: [
 				{
-					url: urlFor(mainImage?.asset).width(width).height(height).format('webp').url().toString(),
+					url: S.urlFor(mainImage?.asset).width(width).height(height).format('webp').url().toString(),
 					width: width,
 					height: height,
 					alt: mainImage?.alt ?? title

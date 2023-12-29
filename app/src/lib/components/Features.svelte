@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
 	import type { Features } from '$lib/sanity/types/features';
-	import { urlFor } from '$lib/sanity/client';
+	import { SanityImage } from '$lib/sanity'
 	import FadeIn from './FadeIn.svelte';
 
 	export let portableText: CustomBlockComponentProps<Features>;
@@ -54,12 +54,10 @@
 							{:else if feature.useImage && feature?.image?.asset}
 								<div class="sm:flex">
 									<div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
-										<img
-											src={urlFor(feature.image.asset).width(600).height(400).format('webp').url()}
-											alt={feature.image.alt}
-											height="400"
-											width="600"
-											class="w-full h-full object-contain border border-gray-300 bg-white text-gray-300 sm:w-32 rounded-md"
+										<SanityImage
+											image={feature.image}
+											maxWidth={600}
+											cls="w-full h-full object-contain border border-gray-300 bg-white text-gray-300 sm:w-32 rounded-md"
 										/>
 									</div>
 									<div>

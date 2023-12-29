@@ -2,7 +2,7 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
 	import type { PageHeader } from '$lib/sanity/types/header';
-	import { urlFor } from '$lib/sanity/client';
+	import S from '$lib/sanity'	
 
 	export let portableText: CustomBlockComponentProps<PageHeader>;
 	const { value } = portableText;
@@ -11,7 +11,7 @@
 <div class="relative isolate overflow-hidden bg-gray-900 py-24 px-6 sm:py-32 lg:px-8">
 	{#if value?.image?.asset}
 		<img
-			src={urlFor(value.image.asset).height(1500).format('webp').url()}
+			src={S.urlFor(value.image.asset).height(1500).format('webp').url()}
 			alt={value?.image?.alt}
 			class="absolute inset-0 -z-10 h-full w-full object-cover filter sepia brightness-50"
 		/>

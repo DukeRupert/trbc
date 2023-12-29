@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { urlFor } from '$lib/sanity/client';
+	import S from '$lib/sanity'	
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
 	import type { MediaGallery } from '$lib/sanity/types/mediaGallery';
 	import FadeIn from './FadeIn.svelte';
@@ -33,7 +33,7 @@
 				{#if value?.gallery[0]}
 					<div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
 						<img
-							src={urlFor(value.gallery[0].image.asset).width(1152).format('webp').toString()}
+							src={S.urlFor(value.gallery[0].image.asset).width(1152).format('webp').toString()}
 							alt={value.gallery[0].image.alt}
 							class="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
 							width="1152"
@@ -47,7 +47,7 @@
 					{#if value?.gallery[1]}
 						<div class="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
 							<img
-								src={urlFor(value.gallery[1].image.asset).width(768).format('webp').toString()}
+								src={S.urlFor(value.gallery[1].image.asset).width(768).format('webp').toString()}
 								alt={value.gallery[1].image.alt}
 								class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
 								width="768"
@@ -58,7 +58,7 @@
 					{#if value?.gallery[2]}
 						<div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
 							<img
-								src={urlFor(value.gallery[2].image.asset).width(1152).format('webp').toString()}
+								src={S.urlFor(value.gallery[2].image.asset).width(1152).format('webp').toString()}
 								alt={value.gallery[2].image.alt}
 								class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
 								width="1152"
@@ -69,7 +69,7 @@
 					{#if value?.gallery[3]}
 						<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
 							<img
-								src={urlFor(value.gallery[3].image.asset).width(768).format('webp').toString()}
+								src={S.urlFor(value.gallery[3].image.asset).width(768).format('webp').toString()}
 								alt={value.gallery[3].image.alt}
 								class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
 								width="768"

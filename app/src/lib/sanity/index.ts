@@ -1,9 +1,10 @@
 import { SanityClient } from "./client";
 import { default as SanityImage } from './SanityImage/Image.svelte'
+import { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET, PUBLIC_SANITY_API_VERSION } from "$env/static/public";
 
-const projectId = 'r9avj1jo';
-const dataset = 'production';
-const apiVersion = '2023-05-16';
+const projectId = PUBLIC_SANITY_PROJECT_ID;
+const dataset = PUBLIC_SANITY_DATASET;
+const apiVersion = PUBLIC_SANITY_API_VERSION;
 
 const S = new SanityClient(projectId, dataset, apiVersion)
 

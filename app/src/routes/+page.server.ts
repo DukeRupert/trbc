@@ -3,9 +3,7 @@ import postmarkClient from '$lib/postmarkClient';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import { fail } from '@sveltejs/kit';
-import type { SanityPage } from '$lib/sanity/types/page';
-import Sanity from '$lib/sanity/client';
-import { getPageData } from '$lib/sanity/query';
+import S from '$lib/sanity'
 
 const schema = z.object({
 	name: z.string().max(50),
@@ -17,11 +15,7 @@ const schema = z.object({
 export const load = async ({ url }) => {
 	const { pathname } = url;
 
-	const parameters = {
-		pathname
-	};
-
-	const data: SanityPage = await Sanity.fetch(getPageData, parameters);
+	const data = await S.getPageData(pathname);
 
 	// Server API:
 	const form = await superValidate(schema);

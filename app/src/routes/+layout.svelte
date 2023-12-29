@@ -13,7 +13,7 @@
 	import NavBar from '$lib/components/NavBar.svelte';
 
 	export let data: LayoutServerData;
-	console.log(data);
+	const { metaData } = data;
 
 	const links = [
 		{ label: 'Events', href: '/events' },
@@ -24,8 +24,8 @@
 	];
 </script>
 
-<NavBar logo={data.metaData.logo} socials={data.metaData.socials} {links} />
+<NavBar logo={metaData.logo} socials={metaData.socials} {links} />
 <main class="isolate min-h-screen">
 	<slot />
 </main>
-<Footer data={data.metaData} {links} />
+<Footer data={metaData} {links} />

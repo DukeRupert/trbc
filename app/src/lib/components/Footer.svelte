@@ -3,8 +3,8 @@
 	import type { MetaData } from '$lib/sanity/types/SiteSettings';
 	import type { Link } from '$lib/types/app';
 	export let data: MetaData;
-	const { business_name, socials } = data;
 	export let links: Link[] = [];
+	const { business_name, socials } = data;
 </script>
 
 <footer class="bg-white">

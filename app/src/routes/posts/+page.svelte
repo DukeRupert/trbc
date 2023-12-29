@@ -4,7 +4,7 @@
 
 	export let data: PageData;
 	const { posts } = data;
-	console.log(posts);
+	console.log(data);
 </script>
 
 <Posts {posts} />

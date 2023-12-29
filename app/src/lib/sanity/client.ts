@@ -1,6 +1,39 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
+import { getPosts } from './query';
+import type { Post } from './types/post'
+
+export type ReqGetPosts = {
+    posts: Post[],
+    total: number
+}
+
+export class SanityClient {
+	private projectId: string;
+	private dataset: string;
+	private apiVersion: string;
+	private token: string = ''
+	private useCdn: boolean = false
+	private client: any;
+
+	constructor(projectId: string, dataset: string, apiVersion: string, token?: string, useCdn?: boolean) {
+		this.projectId = projectId
+		this.dataset = dataset
+		this.apiVersion = apiVersion
+		if(token) this.token = token
+		if(useCdn) this.useCdn = useCdn
+		this.client = createClient({
+			projectId, dataset, apiVersion, token, useCdn
+		})
+	}
+
+	async getPosts(min: number, max: number): Promise<ReqGetPosts> {
+		const q = getPosts;
+		const p = {min, max}
+		return await this.client.fetch(q, p)
+	}
+}
 
 const projectId = 'r9avj1jo';
 const dataset = 'production';

@@ -4,7 +4,6 @@
 
 	export let data: PageData;
 	const { events } = data;
-	console.log(data);
 </script>
 
 <ListView {events} />

@@ -3,7 +3,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
 import { getMetaData, type MetaData } from './queries';
 import { getPost, getPosts, type Post } from './queries';
-import { getEvents, type Event } from './queries';
+import { getEvents, getUpcomingEvents, type Event } from './queries';
 import { getPage, type SanityPage } from './queries';
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
 
@@ -74,6 +74,12 @@ export class SanityClient {
 	async getEvents(min: number, max: number): Promise<ReqGetEvents> {
 		const q = getEvents;
 		const p = { min, max };
+		return await this.client.fetch(q, p);
+	}
+
+	async getUpcomingEvents(max: Number): Promise<ReqGetEvents> {
+		const q = getUpcomingEvents;
+		const p = { max };
 		return await this.client.fetch(q, p);
 	}
 

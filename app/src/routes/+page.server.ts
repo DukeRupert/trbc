@@ -3,7 +3,8 @@ import postmarkClient from '$lib/postmarkClient';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import { fail } from '@sveltejs/kit';
-import S from '$lib/sanity'
+import S from '$lib/sanity';
+import type { ReqGetPosts, ReqGetEvents } from '$lib/sanity/client';
 
 const schema = z.object({
 	name: z.string().max(50),
@@ -12,16 +13,49 @@ const schema = z.object({
 	message: z.string().max(250)
 });
 
-export const load = async ({ url }) => {
+export const load = async ({ fetch, url }) => {
 	const { pathname } = url;
 
+	// Priority page data
 	const data = await S.getPage(pathname);
+
+	// Streaming
+	const fetchPosts = async (min: number, max: number): Promise<ReqGetPosts> => {
+		const endpoint = '/api/sanity/getPosts';
+		const response = await fetch(endpoint, {
+			method: 'POST',
+			body: JSON.stringify({ min, max }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		return response.json() as Promise<ReqGetPosts>;
+	};
+
+	const fetchUpcomingEvents = async (max: number): Promise<ReqGetEvents> => {
+		const endpoint = '/api/sanity/getUpcomingEvents';
+		const response = await fetch(endpoint, {
+			method: 'POST',
+			body: JSON.stringify({ max }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		return response.json() as Promise<ReqGetEvents>;
+	};
 
 	// Server API:
 	const form = await superValidate(schema);
 
 	// Always return { form } in load and form actions.
-	return { page: data, form };
+	return {
+		page: data,
+		form,
+		streamed: {
+			posts: fetchPosts(0, 3),
+			events: fetchUpcomingEvents(5)
+		}
+	};
 };
 
 export const actions: Actions = {

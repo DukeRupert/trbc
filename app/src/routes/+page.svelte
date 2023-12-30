@@ -1,27 +1,19 @@
 <script lang="ts">
-	// import OurFamily from '$lib/components/OurFamily.svelte';
-	// import Hero from '$lib/components/Hero.svelte';
-	// import Features from '$lib/components/Features.svelte';
-	// import Team from '$lib/components/Team.svelte';
-	// import Reviews from '$lib/components/Reviews/index.svelte';
-	// import PageHeader from '$lib/components/PageHeader.svelte';
-	// import Cta from '$lib/components/cta/SimpleCenteredOnBrand.svelte';
-	// import Posts from '$lib/components/Posts/Posts.svelte';
-	// import { PortableText } from '@portabletext/svelte';
-	import PortableText from '$lib/components/portableText/index.svelte'
+	import PortableText from '$lib/components/portableText/index.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { page } from '$app/stores';
 	import { superForm } from 'sveltekit-superforms/client';
-	import type { InputValue } from '@portabletext/svelte/ptTypes';
 	import type { PageData } from './$types';
+	import Hero from '$lib/components/portableText/Hero.svelte';
+	import type { Hero as HeroType } from '$lib/sanity/queries/page/types';
+	import Dashboard from '$lib/components/Dashboard.svelte';
 
 	export let data: PageData;
-	const blocks = data?.page?.blocks as InputValue;
+	const blocks = data?.page?.blocks;
 
 	// Client API:
 	const { form, errors, constraints, posted, enhance } = superForm(data.form);
-
-	console.log(data);
+	const heroData = blocks.find((el) => el._type === 'hero') as HeroType;
 </script>
 
 <svelte:head
@@ -33,15 +25,16 @@
 </svelte:head>
 
 <Seo type="page" {...data?.page?.seo} url={$page.url.href} />
+{#if heroData}
+	<Hero data={heroData} />
+{/if}
+<Dashboard e={data.streamed.events} p={data.streamed.posts} />
 <PortableText data={blocks} />
-
 <div class="bg-surface-50 dark:bg-surface-900 relative w-full">
 	<div class="absolute inset-0">
 		<div class="absolute inset-y-0 left-0 w-1/2" />
 	</div>
-	<div
-		class="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24 lg:grid lg:grid-cols-5"
-	>
+	<div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24 lg:grid lg:grid-cols-5">
 		<div class="lg:col-span-2">
 			<div class="mx-auto max-w-2xl">
 				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>

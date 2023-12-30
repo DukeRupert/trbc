@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CustomBlockComponentProps } from '@portabletext/svelte';
 	import type { Team } from '$lib/sanity/queries/page/types';
-	import S from '$lib/sanity'	
+	import SanityImage from '$lib/sanity/SanityImage/Image.svelte';
 	import FadeIn from '../FadeIn.svelte';
 
 	export let portableText: CustomBlockComponentProps<Team>;
@@ -21,12 +21,6 @@
 					{value?.tagline ??
 						'Quasi est quaerat. Sit molestiae et. Provident ad dolorem occaecati eos iste. Soluta rerum quidem minus ut molestiae velit error quod. Excepturi quidem expedita molestias quas.'}
 				</p>
-				<!-- <p class="mt-6 text-base leading-7 text-gray-600">
-					{value?.subtext ??
-						`Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
-		      Elit sunt amet fugiat veniam occaecat fugiat. Quasi aperiam sit non sit neque
-					reprehenderit.`}
-				</p> -->
 			</div>
 		</FadeIn>
 		{#if value?.members && value?.members.length > 0}
@@ -36,12 +30,10 @@
 				{#each value?.members as { name, title, description, image, link }, i}
 					<FadeIn i={i * 150}>
 						<li>
-							<img
-								class="aspect-square w-full rounded-2xl object-contain"
-								src={S.urlFor(image?.asset).size(400, 400).format('webp').url()}
-								alt={image?.alt}
-								height="400"
-								width="400"
+							<SanityImage
+								cls="aspect-square w-full rounded-2xl object-cover"
+								{image}
+								maxWidth={600}
 							/>
 							<h3 class="mt-6 text-lg font-semibold leading-8 text-gray-900">{name}</h3>
 							<p class="text-base leading-7 text-gray-600">{title}</p>

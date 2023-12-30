@@ -6,6 +6,7 @@ import type { Team } from './objects/team';
 import type { PageHeader } from './objects/header';
 import type { Reviews } from './objects/reviews';
 import type { Cta } from './objects/cta';
+import type { Gallery } from './objects/gallery';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
 
 export interface SanityPage {
@@ -13,7 +14,7 @@ export interface SanityPage {
 	seo: SEO;
 }
 
-export type Block = Hero | Team | PageHeader | Reviews | Cta;
+export type Block = Gallery | Hero | Team | PageHeader | Reviews | Cta;
 
 export interface Feature {
 	_key: string;
@@ -76,5 +77,5 @@ export interface OpenGraph {
 	url: string;
 }
 
-export { Features, Cta, Hero, Team, PageHeader }
-export default SanityPage
+export { Features, Cta, Hero, Team, PageHeader };
+export default SanityPage;

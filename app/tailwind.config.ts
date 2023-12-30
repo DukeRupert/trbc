@@ -1,5 +1,6 @@
 import { join } from 'path';
 import type { Config } from 'tailwindcss';
+import { myCustomTheme } from './src/custom-theme';
 
 // 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
@@ -55,7 +56,7 @@ const config = {
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/typography'),
 		skeleton({
-			themes: { preset: ['skeleton'] }
+			themes: { preset: ['skeleton'], custom: [myCustomTheme] }
 		})
 	]
 } satisfies Config;

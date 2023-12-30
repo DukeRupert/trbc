@@ -44,16 +44,31 @@ export const load = async ({ fetch, url }) => {
 		return response.json() as Promise<ReqGetEvents>;
 	};
 
+	const promise = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve({ events: [], posts: [], total: 0 });
+		}, 50);
+	});
+
 	// Server API:
 	const form = await superValidate(schema);
 
 	// Always return { form } in load and form actions.
+	// return {
+	// 	page: data,
+	// 	form,
+	// 	streamed: {
+	// 		posts: fetchPosts(0, 3),
+	// 		events: fetchUpcomingEvents(5)
+	// 	}
+	// };
+
 	return {
 		page: data,
 		form,
 		streamed: {
-			posts: fetchPosts(0, 3),
-			events: fetchUpcomingEvents(5)
+			posts: promise,
+			events: promise
 		}
 	};
 };

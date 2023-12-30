@@ -12,15 +12,9 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<FadeIn>
 			<div class="mx-auto max-w-2xl lg:text-center">
-				<h2 class="text-base font-semibold leading-7 text-primary-600">
-					{value?.heading}
-				</h2>
-				<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+				<h3 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
 					{value?.title}
-				</p>
-				<p class="mt-6 text-lg leading-8 text-gray-600">
-					{value?.tagline}
-				</p>
+				</h3>
 			</div>
 		</FadeIn>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -33,7 +27,9 @@
 									<dt
 										class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900"
 									>
-										<span class="text-primary-500">{@html feature?.icon?.svg}</span>
+										<span class="text-primary-500"
+											><img class="h-8 w-8" src={feature?.icon.metadata.downloadUrl} /></span
+										>
 										{feature?.title}
 									</dt>
 									<dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">

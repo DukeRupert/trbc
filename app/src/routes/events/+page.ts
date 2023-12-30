@@ -7,12 +7,11 @@ export const load: PageLoad = async ({ url }) => {
 	const max = parseInt(url.searchParams.get('max') ?? '10');
 
 	console.log('Fetching events');
-	const res = await S.getEvents(min, max);
-	if (!res) error(500, 'Weird. We did not find any events.');
-	const { events, total } = res;
+	const e = S.getEvents(min, max);
 
 	return {
-		events,
-		total
+		streamed: {
+			e
+		}
 	};
 };

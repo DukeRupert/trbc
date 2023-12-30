@@ -1,18 +1,16 @@
-import type { PageLoad } from "./$types";
-import { error } from "@sveltejs/kit";
-import S from '$lib/sanity'
-export const load: PageLoad = async ({url}) => {
-    // Get pagination variables
-    const min = parseInt(url.searchParams.get('min') ?? '0')
-    const max = parseInt(url.searchParams.get('max') ?? '10') 
+import type { PageLoad } from './$types';
+import S from '$lib/sanity';
+export const load: PageLoad = async ({ url }) => {
+	// Get pagination variables
+	const min = parseInt(url.searchParams.get('min') ?? '0');
+	const max = parseInt(url.searchParams.get('max') ?? '10');
 
-    console.log('Fetching posts')
-    const res = await S.getPosts(min, max)
-    if(!res) error(500, "Weird. We did not find any posts.")
-    const { posts, total } = res
+	console.log('Fetching posts');
+	const p = S.getPosts(min, max);
 
-    return {
-        posts,
-        total
-    }
-}
+	return {
+		streamed: {
+			p
+		}
+	};
+};

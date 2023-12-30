@@ -1,38 +1,51 @@
 // Features Object
-export interface Features {
+export type Features = {
 	_key: string;
-	_type: string;
 	features: Feature[];
 	heading: string;
+	_type: string;
 	tagline: string;
 	title: string;
-}
+};
 
-export interface Feature {
-	_key: string;
-	_type: string;
-	description: string;
-	icon: Icon | null;
-	link: string;
-	title: string;
+export type Feature = {
 	useIcon: boolean;
-	useImage: boolean;
-	image?: Image;
-}
-
-export interface Icon {
-	size: number;
-	svg: string;
+	description: string;
+	_key: string;
 	title: string;
-}
-
-export interface Image {
 	_type: string;
-	alt: string;
-	asset: Asset;
-}
+	icon: Icon;
+	link?: string;
+};
 
-export interface Asset {
-	_ref: string;
+export type Icon = {
+	metadata: Metadata;
 	_type: string;
-}
+	icon: string;
+};
+
+export type Metadata = {
+	iconName: string;
+	author: Author;
+	hFlip: boolean;
+	url: string;
+	collectionName: string;
+	vFlip: boolean;
+	size: Size;
+	palette: boolean;
+	collectionId: string;
+	downloadUrl: string;
+	license: Author;
+	flip: string;
+	rotate: number;
+};
+
+export type Author = {
+	name: string;
+	url: string;
+};
+
+export type Size = {
+	width: number;
+	height: number;
+};

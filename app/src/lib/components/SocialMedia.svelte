@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { SocialMedia } from '$lib/sanity/types/siteMetaData';
-	export let socialMedia: SocialMedia;
+	import type { Socials } from '$lib/sanity/types/SiteSettings';
+	export let data: Socials;
 </script>
 
-{#if socialMedia}
+{#if data}
 	<div class="flex justify-center space-x-10">
-		{#if socialMedia?.facebook}
-			<a href={socialMedia?.facebook}>
+		{#if data?.facebook}
+			<a href={data?.facebook}>
 				<span class="sr-only">Facebook</span>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 					<path
@@ -18,8 +18,8 @@
 			</a>
 		{/if}
 
-		{#if socialMedia?.instagram}
-			<a href={socialMedia.instagram}>
+		{#if data?.instagram}
+			<a href={data.instagram}>
 				<span class="sr-only">Instagram</span>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 					<path
@@ -31,8 +31,8 @@
 			</a>
 		{/if}
 
-		{#if socialMedia?.twitter}
-			<a href={socialMedia?.twitter}>
+		{#if data?.twitter}
+			<a href={data?.twitter}>
 				<span class="sr-only">Twitter</span>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 					<path

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SanityImage from '$lib/sanity/SanityImage.svelte';
-	import type { Image } from '$lib/types/sanity';
+	import SanityImage from '$lib/sanity/SanityImage/Image.svelte';
+	import type { SanityImage as Image } from '$lib/sanity/SanityImage/types';
 
 	export let portableText;
 
@@ -8,10 +8,5 @@
 </script>
 
 {#if value.asset}
-	<figure>
-		<SanityImage image={value} />
-		{#if value.caption}
-			<figcaption>{value.caption}</figcaption>
-		{/if}
-	</figure>
+	<SanityImage image={value} maxWidth={1920} />
 {/if}

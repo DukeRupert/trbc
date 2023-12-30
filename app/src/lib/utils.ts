@@ -1,41 +1,26 @@
-import { drawerStore } from '@skeletonlabs/skeleton';
-import type { DrawerSettings } from '@skeletonlabs/skeleton';
-import type { ToastSettings } from '@skeletonlabs/skeleton';
-import { toastStore } from '@skeletonlabs/skeleton';
-
-// Drawer
-interface Id {
-	id: string;
+export interface Options {
+	month?: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow';
+	day?: 'numeric' | '2-digit';
+	year?: 'numeric' | '2-digit';
+	weekday?: 'long' | 'short' | 'narrow';
 }
 
-export function drawerOpen(id: Id): void {
-	const settings: DrawerSettings = id || { id: 'navigation' };
-	drawerStore.open(settings);
-}
-
-export function drawerClose(): void {
-	drawerStore.close();
-}
-
-// Toast
-// const tSuccess: ToastSettings = {
-// 	message: 'Message sent!',
-// 	background: 'variant-filled-success'
-// };
-
-export const trigger_success_toast = (message: string) => {
-	const tSuccess: ToastSettings = {
-		message: message ?? 'Message sent!',
-		background: 'variant-filled-success'
+export function formatDate(date: string | Date, opts?: Options): string {
+	let options: Options = {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric'
 	};
-	toastStore.trigger(tSuccess);
-};
+	if (opts) options = opts;
+	return new Date(date).toLocaleDateString('us-EN', options);
+}
 
-const tError: ToastSettings = {
-	message: 'An error has occured. Please try again later.',
-	background: 'variant-filled-error'
-};
+export function fromISOtoDatetime(date: string): string {
+	const split = date.split('T');
+	return split[0];
+}
 
-export const trigger_error_toast = () => {
-	toastStore.trigger(tError);
-};
+export function fromISOtoTime(date: Date): string {
+	const d = new Date(date);
+	return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}

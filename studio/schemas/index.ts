@@ -1,6 +1,8 @@
 import blockContent from './objects/blockContent'
 import category from './documents/category'
+import tags from './documents/tags'
 import post from './documents/post'
+import event from './documents/event'
 import author from './documents/author'
 import siteMeta from './documents/siteMeta'
 import openGraph from './objects/openGraph'
@@ -9,7 +11,6 @@ import page from './documents/page'
 import hero from './objects/hero'
 import feature from './objects/feature'
 import features from './objects/features'
-import icon from './documents/icon'
 import teamMember from './objects/teamMember'
 import team from './objects/team'
 import reviews from './objects/reviews'
@@ -23,8 +24,10 @@ import gallery from './objects/gallery'
 export const schemaTypes = [
   page,
   post,
+  event,
   author,
   category,
+  tags,
   blockContent,
   siteMeta,
   openGraph,
@@ -32,7 +35,6 @@ export const schemaTypes = [
   hero,
   feature,
   features,
-  icon,
   teamMember,
   team,
   review,

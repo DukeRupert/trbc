@@ -1,23 +1,93 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityAsset } from '@sanity/image-url/lib/types/types';
+import { getMetaData, type MetaData } from './queries';
+import { getPost, getPosts, type Post } from './queries';
+import { getEvents, getUpcomingEvents, type Event } from './queries';
+import { getPage, type SanityPage } from './queries';
+import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
 
-const projectId = 'r9avj1jo';
-const dataset = 'production';
-const apiVersion = '2023-05-16';
+export type ReqMetaData = MetaData;
 
-const Sanity = createClient({
-	projectId: projectId,
-	dataset: dataset,
-	apiVersion: apiVersion, // use current UTC date - see "specifying API version"!
-	token: '', // or leave blank for unauthenticated usage
-	useCdn: true // `false` if you want to ensure fresh data
-});
-
-const builder = imageUrlBuilder(Sanity);
-
-export const urlFor = (source: string | SanityAsset) => {
-	return builder.image(source);
+export type ReqGetPosts = {
+	posts: Post[];
+	total: number;
 };
 
-export default Sanity;
+export type ReqGetEvents = {
+	events: Event[];
+	total: number;
+};
+
+export class SanityClient {
+	private projectId: string;
+	private dataset: string;
+	private apiVersion: string;
+	private token: string = '';
+	private useCdn: boolean = false;
+	private client: any;
+	private imageBuilder: ImageUrlBuilder;
+
+	constructor(
+		projectId: string,
+		dataset: string,
+		apiVersion: string,
+		token?: string,
+		useCdn?: boolean
+	) {
+		this.projectId = projectId;
+		this.dataset = dataset;
+		this.apiVersion = apiVersion;
+		if (token) this.token = token;
+		if (useCdn) this.useCdn = useCdn;
+		this.client = createClient({
+			projectId,
+			dataset,
+			apiVersion,
+			token,
+			useCdn
+		});
+		this.imageBuilder = imageUrlBuilder(this.client);
+	}
+
+	urlFor(source: SanityAsset) {
+		return this.imageBuilder.image(source).fit('max').auto('format');
+	}
+
+	async getMetaData(): Promise<ReqMetaData> {
+		const q = getMetaData;
+		return await this.client.fetch(q);
+	}
+
+	async getPosts(min: number, max: number): Promise<ReqGetPosts> {
+		const q = getPosts;
+		const p = { min, max };
+		return await this.client.fetch(q, p);
+	}
+
+	async getPost(slug: string): Promise<any> {
+		const q = getPost;
+		const p = { slug };
+		return await this.client.fetch(q, p);
+	}
+
+	async getEvents(min: number, max: number): Promise<ReqGetEvents> {
+		const q = getEvents;
+		const p = { min, max };
+		return await this.client.fetch(q, p);
+	}
+
+	async getUpcomingEvents(max: Number): Promise<ReqGetEvents> {
+		const q = getUpcomingEvents;
+		const p = { max };
+		return await this.client.fetch(q, p);
+	}
+
+	async getPage(pathname: string): Promise<SanityPage> {
+		const q = getPage;
+		const p = {
+			pathname
+		};
+		return await this.client.fetch(q, p);
+	}
+}

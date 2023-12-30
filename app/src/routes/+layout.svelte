@@ -1,71 +1,31 @@
 <script lang="ts">
 	import type { LayoutServerData } from './$types';
-	// Your custom Skeleton theme:
-	import '../theme.postcss';
-	// Your selected Skeleton theme:
-	// import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-	// This contains the bulk of Skeletons required styles:
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
-	import '../app.postcss';
 
-	// Skeleton Popup requirements
+	// Tailwind styles
+	import '../app.postcss';
+	
+	// Skeleton Popup reqs
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
-	import { Toast } from '@skeletonlabs/skeleton';
-
-	import Header from '$lib/components/Nav/Header.svelte';
-	import Drawer from '$lib/components/Nav/Drawer.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 
 	export let data: LayoutServerData;
+	const { metaData } = data;
+
+	const links = [
+		{ label: 'Events', href: '/events' },
+		{ label: 'Posts', href: '/posts' },
+		{ label: 'Why the Ridge', href: '/why-the-ridge' },
+		{ label: 'Statement of Faith', href: '/statement-of-faith' },
+		{ label: 'Contact Us', href: '/contact-us' }
+	];
 </script>
 
-<Toast />
-<div class="parent" id="foundation">
-	<header>
-		<Header logo={data?.siteMetaData?.logo?.asset} />
-	</header>
-	<main>
-		<slot />
-	</main>
-	<div class="right-side">
-		<Drawer />
-	</div>
-	<footer>
-		<Footer
-			business={data?.siteMetaData?.business}
-			socialMedia={data?.siteMetaData?.socialMedia}
-			logo={data?.siteMetaData?.logo}
-		/>
-	</footer>
-</div>
-
-<style>
-	.parent {
-		display: grid;
-		grid-template: auto 1fr auto / auto 1fr auto;
-	}
-
-	header {
-		grid-column: 1 / 4;
-	}
-
-	.left-side {
-		grid-column: 1 / 2;
-	}
-
-	main {
-		grid-column: 2 / 3;
-	}
-
-	.right-side {
-		grid-column: 3 / 4;
-	}
-
-	footer {
-		grid-column: 1 / 4;
-	}
-</style>
+<NavBar data={metaData} {links} />
+<main class="isolate min-h-screen bg-surface-50 dark:bg-surface-900">
+	<slot />
+</main>
+<Footer data={metaData} {links} />

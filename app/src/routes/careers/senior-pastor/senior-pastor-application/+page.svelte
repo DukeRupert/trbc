@@ -3,8 +3,6 @@
 	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
-	import { trigger_success_toast, trigger_error_toast } from '$lib/utils';
-	import { page } from '$app/stores';
 
 	export let data: PageData;
 	// Superforms client API:
@@ -14,14 +12,6 @@
 	// Snapshot functionality
 	export const snapshot = { capture, restore };
 
-	$: if ($posted) {
-		if ($page.status == 200) {
-			trigger_success_toast($message);
-		}
-		if ($page.status == 400) {
-			trigger_error_toast();
-		}
-	}
 </script>
 
 <svelte:head>

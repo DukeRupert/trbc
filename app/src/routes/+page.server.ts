@@ -47,23 +47,23 @@ export const load = async ({ fetch, url }) => {
 	const form = await superValidate(contactSchema);
 
 	// Always return { form } in load and form actions.
-	return {
-		page: data,
-		form,
-		streamed: {
-			posts: fetchPosts(0, 3),
-			events: fetchUpcomingEvents(5)
-		}
-	};
-
 	// return {
 	// 	page: data,
 	// 	form,
 	// 	streamed: {
-	// 		posts: promise,
-	// 		events: promise
+	// 		posts: fetchPosts(0, 3),
+	// 		events: fetchUpcomingEvents(5)
 	// 	}
 	// };
+
+	return {
+		page: data,
+		form,
+		streamed: {
+			posts: promise,
+			events: promise
+		}
+	};
 };
 
 export const actions: Actions = {

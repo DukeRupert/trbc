@@ -8,6 +8,12 @@ export const load: PageLoad = async ({ url }) => {
 	console.log('Fetching posts');
 	const p = S.getPosts(min, max);
 
+	const promise = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve({ events: [], posts: [], total: 0 });
+		}, 50);
+	});
+
 	return {
 		streamed: {
 			p

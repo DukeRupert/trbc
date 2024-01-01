@@ -1,69 +1,17 @@
-import type { Actions } from './$types';
-import { contactSchema, type ContactSchema } from '$lib/validators';
+import type { Actions, PageServerLoad } from './$types';
+import { contactSchema } from '$lib/validators';
 import postmarkClient from '$lib/postmarkClient';
 import { superValidate, message } from 'sveltekit-superforms/server';
 import { fail } from '@sveltejs/kit';
-import S from '$lib/sanity';
-import type { ReqGetPosts, ReqGetEvents } from '$lib/sanity/client';
 
-export const load = async ({ fetch, url }) => {
-	const { pathname } = url;
-
-	// Priority page data
-	const data = await S.getPage(pathname);
-
-	// Streaming
-	const fetchPosts = async (min: number, max: number): Promise<ReqGetPosts> => {
-		const endpoint = '/api/sanity/getPosts';
-		const response = await fetch(endpoint, {
-			method: 'POST',
-			body: JSON.stringify({ min, max }),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
-		return response.json() as Promise<ReqGetPosts>;
-	};
-
-	const fetchUpcomingEvents = async (max: number): Promise<ReqGetEvents> => {
-		const endpoint = '/api/sanity/getUpcomingEvents';
-		const response = await fetch(endpoint, {
-			method: 'POST',
-			body: JSON.stringify({ max }),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
-		return response.json() as Promise<ReqGetEvents>;
-	};
-
-	const promise = new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve({ events: [], posts: [], total: 0 });
-		}, 50);
-	});
-
+export const load: PageServerLoad = async () => {
 	// Server API:
 	const form = await superValidate(contactSchema);
 
 	// Always return { form } in load and form actions.
 	return {
-		page: data,
-		form,
-		streamed: {
-			posts: fetchPosts(0, 3),
-			events: fetchUpcomingEvents(5)
-		}
+		form
 	};
-
-	// return {
-	// 	page: data,
-	// 	form,
-	// 	streamed: {
-	// 		posts: promise,
-	// 		events: promise
-	// 	}
-	// };
 };
 
 export const actions: Actions = {

@@ -4,8 +4,8 @@
 	import FadeIn from '$lib/components/FadeIn.svelte';
 	import Placeholder from './Placeholder.svelte';
 
-	export let title = 'Upcoming events';
-	export let description = "Don't miss out on these activites.";
+	export let title = '';
+	export let description = '';
 	export let e: Promise<ReqGetEvents>;
 </script>
 

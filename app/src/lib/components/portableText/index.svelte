@@ -8,6 +8,7 @@
 	import PageHeader from '$lib/components/portableText/PageHeader.svelte';
 	import Cta from '$lib/components/portableText/cta/SimpleCenteredOnBrand.svelte';
 	import Posts from '$lib/components/portableText/Posts/Posts.svelte';
+	import ContentBlock from './ContentBlock.svelte';
 	import Link from './Link.svelte';
 	import ImageBlock from './ImageBlock.svelte';
 	import Code from './Code.svelte';
@@ -31,6 +32,7 @@
 			posts: Posts,
 			cta: Cta,
 			gallery: OurFamily,
+			contentBlock: ContentBlock,
 			// inline-level components
 			link: Link,
 			image: ImageBlock,

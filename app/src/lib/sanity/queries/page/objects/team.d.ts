@@ -1,7 +1,7 @@
 // Team Object
 export interface Team {
 	_key: string;
-	_type: string;
+	_type: "team";
 	features: null;
 	members: Member[];
 	tagline: string;

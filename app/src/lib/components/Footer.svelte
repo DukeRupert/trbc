@@ -5,6 +5,8 @@
 	export let data: MetaData;
 	export let links: Link[] = [];
 	const { business_name, socials } = data;
+
+	const date = new Date()
 </script>
 
 <footer class="bg-surface-50 dark:bg-surface-900">
@@ -28,7 +30,7 @@
 		{/if}
 		{#if business_name}
 			<p class="mt-10 text-center text-xs leading-5 text-gray-500">
-				&copy; 2018 {business_name}. All rights reserved.
+				&copy; 2018 - {date.getFullYear()} {business_name}. All rights reserved.
 			</p>
 		{/if}
 	</div>

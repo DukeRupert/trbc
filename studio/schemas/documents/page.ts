@@ -69,7 +69,9 @@ export default defineType({
 				{ type: 'reviews' },
 				{ type: 'posts' },
 				{ type: 'cta' },
-				{ type: 'gallery'}
+				{ type: 'gallery'},
+				{ type: 'contentBlock'}	
+				// { type: "blockContent"}
 				// etc...
 			]
 		}),

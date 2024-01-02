@@ -1,7 +1,7 @@
 // Hero Object
 export interface Hero {
 	_key: string;
-	_type: string;
+	_type: "hero";
 	features: null;
 	heading: string;
 	highlightHref: string;

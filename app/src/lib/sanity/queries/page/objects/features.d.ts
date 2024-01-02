@@ -3,7 +3,7 @@ export type Features = {
 	_key: string;
 	features: Feature[];
 	heading: string;
-	_type: string;
+	_type: "features";
 	tagline: string;
 	title: string;
 };

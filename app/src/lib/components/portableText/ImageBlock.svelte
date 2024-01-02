@@ -8,5 +8,9 @@
 </script>
 
 {#if value.asset}
-	<SanityImage image={value} maxWidth={1920} />
+	<SanityImage
+		image={value}
+		maxWidth={1920}
+		cls="w-full mt-16 aspect-video rounded-xl bg-gray-50 object-cover"
+	/>
 {/if}

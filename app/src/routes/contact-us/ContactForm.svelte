@@ -7,7 +7,6 @@
 	import { page } from '$app/stores';
 	import { createEventDispatcher } from 'svelte';
 	import { AlertCircle } from 'lucide-svelte';
-	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 
 	export let data: SuperValidated<ContactSchema>;
 	export let delayMs = 200;
@@ -164,13 +163,13 @@
 						{/if}
 					</div>
 					<div class="relative">
-						<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+						<label for="email" class="sr-only">Email</label>
 						<input
 							id="email"
 							name="email"
 							type="email"
 							autocomplete="email"
-							class="input"
+							class="block w-full rounded-md py-3 px-4"
 							placeholder="Email"
 							required
 							aria-invalid={$errors.email ? 'true' : undefined}
@@ -235,4 +234,3 @@
 		</div>
 	</div>
 </div>
-<SuperDebug data={$form} />

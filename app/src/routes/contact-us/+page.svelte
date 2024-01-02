@@ -6,6 +6,6 @@
 	$: ({ form } = data);
 </script>
 
-<div class="min-h-screen bg-surface-50 dark:bg-surface-900 px-6 py-24 sm:py-32 lg:px-8">
+<div class="min-h-screen bg-surface-50 dark:bg-surface-900 px-6 py-16 sm:py-24 lg:px-8">
 	<ContactForm data={form} />
 </div>

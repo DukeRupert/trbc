@@ -10,11 +10,20 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	// Send message
 	try {
+		// const parameters = {
+		// 	TemplateId: 20861986,
+		// 	TemplateModel: model,
+		// 	From: 'logan@fireflysoftware.dev',
+		// 	To: 'theridgepsc@gmail.com',
+		// 	MessageStream: 'outbound',
+		// 	TrackOpens: true
+		// };
+
 		const parameters = {
-			TemplateId: 20861986,
+			TemplateId: 26884441,
 			TemplateModel: model,
 			From: 'logan@fireflysoftware.dev',
-			To: 'theridgepsc@gmail.com',
+			To: 'logan@fireflysoftware.dev',
 			MessageStream: 'outbound',
 			TrackOpens: true
 		};

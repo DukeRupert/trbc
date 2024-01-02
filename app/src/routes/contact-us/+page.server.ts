@@ -15,7 +15,7 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	default: async ({ request, fetch }) => {
 		const form = await superValidate(request, contactSchema);
 		console.log('POST', form);
 
@@ -28,6 +28,7 @@ export const actions: Actions = {
 		// Check the honeypot
 		if (form.data.password !== '') return message(form, 'Nice try bot', { status: 400 });
 
+		console.log("Validation checks passed")
 		// Send email
 		try {
 			// Setup
@@ -40,9 +41,7 @@ export const actions: Actions = {
 			};
 			// Call
 			const res = await fetch(resource, options);
-			console.log(`Received response from ${resource}`);
 			const status = res.status;
-			console.log(`Status is ${status}`);
 			if (status === 200) {
 				return { form };
 			} else {

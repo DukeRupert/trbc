@@ -6,7 +6,6 @@
 	import { superForm } from 'sveltekit-superforms/client';
 	import { page } from '$app/stores';
 	import { createEventDispatcher } from 'svelte';
-	import { AlertCircle } from 'lucide-svelte';
 
 	export let data: SuperValidated<ContactSchema>;
 	export let delayMs = 200;

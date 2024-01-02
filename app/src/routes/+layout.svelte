@@ -9,6 +9,7 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
+	import Toaster from '$lib/components/toast/Toaster.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
 
@@ -24,6 +25,7 @@
 	];
 </script>
 
+<Toaster />
 <NavBar data={metaData} {links} />
 <main class="isolate min-h-screen bg-surface-50 dark:bg-surface-900">
 	<slot />

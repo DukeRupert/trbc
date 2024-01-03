@@ -71,9 +71,8 @@
 		</div>
 		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
 			<a
-				href="https://theridgebiblechurch.breezechms.com/login"
-				class="mr-6 text-sm font-semibold leading-6 text-primary-500"
-				>Give</a
+				href="https://theridgebiblechurch.breezechms.com/give/online"
+				class="mr-6 text-sm font-semibold leading-6 text-primary-500">Give</a
 			>
 			<a
 				href="https://theridgebiblechurch.breezechms.com/login"

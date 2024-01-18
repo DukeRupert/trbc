@@ -117,6 +117,28 @@
 		<div id="contact-us" class="py-16 lg:col-span-3 lg:py-24 xl:pl-12">
 			<div class="mx-auto max-w-2xl lg:max-w-none">
 				<form use:enhance method="POST" class="grid grid-cols-1 gap-y-6">
+					<div class="hidden">
+						<label for="password" class="sr-only">Password</label>
+						<input
+							type="text"
+							name="password"
+							id="password"
+							autocomplete="given-name"
+							class="block w-full rounded-md py-3 px-4"
+							placeholder="First"
+							required
+							aria-invalid={$errors.password ? 'true' : undefined}
+							bind:value={$form.password}
+							{...$constraints.password}
+						/>
+						{#if $errors.password}
+							<div class="mt-2 pointer-events-none">
+								{#each $errors.password as error}
+									<span class="text-error-500">{error}</span>
+								{/each}
+							</div>
+						{/if}
+					</div>
 					<div>
 						<label for="first_name" class="sr-only">First Name</label>
 						<input

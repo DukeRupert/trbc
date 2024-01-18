@@ -126,7 +126,6 @@
 							autocomplete="given-name"
 							class="block w-full rounded-md py-3 px-4"
 							placeholder="First"
-							required
 							aria-invalid={$errors.password ? 'true' : undefined}
 							bind:value={$form.password}
 							{...$constraints.password}

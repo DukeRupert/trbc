@@ -18,8 +18,12 @@
 			maxWidth={1920}
 			cls="w-full mt-16 aspect-video rounded-xl bg-gray-50 object-cover"
 		/>
-		<div class="mt-10 max-w-2xl">
+		<div class="mt-10 max-w-2xl prose prose-slate dark:prose-invert">
 			<PortableText data={post.content} />
+		</div>
+		<div class="w-full mt-10 flex justify-center gap-x-6">
+			<a href="/" class="btn variant-filled-primary">Return home</a>
+			<a href="/posts" class="btn variant-outline-primary">View posts</a>
 		</div>
 	</div>
 </div>

@@ -20,8 +20,8 @@
 </script>
 
 <div class="py-24 md:py-32 lg:py-40">
-	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-y-20 gap-x-8 px-6 lg:px-8 lg:grid-cols-5">
-		<div class="col-span-2">
+	<div class="mx-auto grid max-w-5xl grid-cols-1 gap-y-20 gap-x-12 px-6 lg:px-8 lg:grid-cols-5">
+		<div class="col-span-3 lg:col-span-2">
 			<ListView {...eventData} />
 		</div>
 		<div class="col-span-3">

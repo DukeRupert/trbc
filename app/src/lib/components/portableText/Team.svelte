@@ -9,7 +9,7 @@
 </script>
 
 <div id="staff" class="py-24 md:py-32 lg:py-40">
-	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-y-20 gap-x-8 px-6 lg:px-8 xl:grid-cols-3">
+	<div class="mx-auto grid max-w-5xl grid-cols-1 gap-y-20 gap-x-8 px-6 lg:px-8 xl:grid-cols-3">
 		<FadeIn>
 			<div
 				class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8"

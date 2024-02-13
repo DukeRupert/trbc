@@ -14,7 +14,7 @@
 	<Seo type="page" {...seo} url={$page.url.href} />
 {/if}
 <div class="bg-surface-50 dark:bg-surface-900 py-16 sm:py-24">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
+	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		{#if blocks}
 			<PortableText data={blocks} />
 			<ListView events={data.events} />

@@ -26,5 +26,7 @@
 {#if heroData}
 	<Hero data={heroData} />
 {/if}
-<Dashboard {events} {posts} />
-<PortableText data={blocks} />
+<div class="max-w-5xl mx-auto">
+	<Dashboard {events} {posts} />
+	<PortableText data={blocks} />
+</div>

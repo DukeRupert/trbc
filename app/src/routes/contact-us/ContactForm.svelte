@@ -56,7 +56,7 @@
 	<div class="absolute inset-0">
 		<div class="absolute inset-y-0 left-0 w-1/2" />
 	</div>
-	<div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-24 lg:grid lg:grid-cols-5">
+	<div class="relative mx-auto max-w-5xl px-6 lg:px-8 py-16 lg:py-24 lg:grid lg:grid-cols-5">
 		<div class="lg:col-span-2">
 			<div class="mx-auto max-w-2xl">
 				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>

@@ -10,19 +10,19 @@ export const load: PageLoad = async ({ url }) => {
 	const max = parseInt(url.searchParams.get('max') ?? '10');
 
 	// Fetch posts
-	// console.log('Fetching posts');
-	// const p = S.getPosts(min, max);
+	console.log('Fetching posts');
+	const p = S.getPosts(min, max);
 
-	const promise = new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve({ events: [], posts: [], total: 0 });
-		}, 50);
-	});
+	// const promise = new Promise((resolve, reject) => {
+	// 	setTimeout(() => {
+	// 		resolve({ events: [], posts: [], total: 0 });
+	// 	}, 50);
+	// });
 
 	return {
 		page: data,
 		streamed: {
-			p: promise
+			p
 		}
 	};
 };

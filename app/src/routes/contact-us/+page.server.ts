@@ -26,9 +26,9 @@ export const actions: Actions = {
 		}
 
 		// Check the honeypot
-		if (form.data.password !== '') return message(form, 'Nice try bot', { status: 400 });
+		if (form.data.phone !== '' || form.data.password !== '')
+			return message(form, 'Nice try bot', { status: 400 });
 
-		console.log("Validation checks passed")
 		// Send email
 		try {
 			// Setup

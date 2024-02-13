@@ -118,11 +118,7 @@
 			<div class="mx-auto max-w-2xl lg:max-w-none">
 				<form use:enhance method="POST" class="grid grid-cols-1 gap-y-6">
 					<div class="hidden">
-						<input
-							type="text"
-							name="password"
-							id="password"
-						/>
+						<input type="text" name="password" id="password" />
 					</div>
 					<div>
 						<label for="first_name" class="sr-only">First Name</label>
@@ -190,7 +186,7 @@
 							</div>
 						{/if}
 					</div>
-					<div>
+					<div class="hidden">
 						<label for="phone" class="sr-only">Phone</label>
 						<input
 							type="text"

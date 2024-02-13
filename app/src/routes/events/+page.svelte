@@ -17,7 +17,7 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		{#if blocks}
 			<PortableText data={blocks} />
-			<ListView e={data.streamed.e} />
+			<ListView events={data.events} />
 		{:else}
 			<UnderConstruction />
 		{/if}

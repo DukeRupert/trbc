@@ -25,7 +25,7 @@
 				<time datetime={fromISOtoDatetime(date.toString())} class="text-gray-500"
 					>{formatDate(date)}</time
 				>
-				{#if category.length > 0}
+				{#if category?.length && category.length > 0}
 					{#each category as c}
 						<a
 							href="#"

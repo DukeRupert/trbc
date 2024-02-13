@@ -13,29 +13,22 @@ export const load = async ({ fetch, url }) => {
 	const data = await S.getPage(pathname);
 
 	// Streaming
-	const fetchPosts = async (min: number, max: number): Promise<ReqGetPosts> => {
-		const endpoint = '/api/sanity/getPosts';
-		const response = await fetch(endpoint, {
+	
+		const {posts} = await fetch('/api/sanity/getPosts', {
 			method: 'POST',
-			body: JSON.stringify({ min, max }),
+			body: JSON.stringify({ min: 0, max: 3 }),
 			headers: {
 				'Content-Type': 'application/json'
 			}
-		});
-		return response.json() as Promise<ReqGetPosts>;
-	};
+		}).then((res) => res.json()) as ReqGetPosts
 
-	const fetchUpcomingEvents = async (max: number): Promise<ReqGetEvents> => {
-		const endpoint = '/api/sanity/getUpcomingEvents';
-		const response = await fetch(endpoint, {
+	const { events } = await fetch( '/api/sanity/getUpcomingEvents', {
 			method: 'POST',
-			body: JSON.stringify({ max }),
+			body: JSON.stringify({ max: 3 }),
 			headers: {
 				'Content-Type': 'application/json'
 			}
-		});
-		return response.json() as Promise<ReqGetEvents>;
-	};
+		}).then((res) => res.json()) as ReqGetEvents;
 
 	// Server API:
 	const form = await superValidate(contactSchema);
@@ -44,10 +37,8 @@ export const load = async ({ fetch, url }) => {
 	return {
 		page: data,
 		form,
-		streamed: {
-			posts: fetchPosts(0, 3),
-			events: fetchUpcomingEvents(5)
-		}
+		posts,
+		events
 	};
 
 	// For debugging

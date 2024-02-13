@@ -2,13 +2,13 @@
 	import PortableText from '$lib/components/portableText/index.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { page } from '$app/stores';
-	import { superForm } from 'sveltekit-superforms/client';
 	import type { PageData } from './$types';
 	import Hero from '$lib/components/portableText/Hero.svelte';
 	import type { Hero as HeroType } from '$lib/sanity/queries/page/types';
 	import Dashboard from '$lib/components/Dashboard.svelte';
 
 	export let data: PageData;
+	$: ({ events, posts } = data);
 	const blocks = data?.page?.blocks;
 
 	const heroData = blocks.find((el) => el._type === 'hero') as HeroType;
@@ -26,5 +26,5 @@
 {#if heroData}
 	<Hero data={heroData} />
 {/if}
-<Dashboard e={data.streamed.events} p={data.streamed.posts} />
+<Dashboard {events} {posts} />
 <PortableText data={blocks} />

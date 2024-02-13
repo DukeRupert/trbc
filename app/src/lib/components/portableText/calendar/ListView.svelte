@@ -1,12 +1,11 @@
 <script lang="ts">
-	import type { ReqGetEvents } from '$lib/sanity/client';
 	import { formatDate, fromISOtoDatetime, fromISOtoTime } from '$lib/utils';
 	import FadeIn from '$lib/components/FadeIn.svelte';
-	import Placeholder from './Placeholder.svelte';
+	import type { Event } from '$lib/sanity/queries';
 
 	export let title = '';
 	export let description = '';
-	export let e: Promise<ReqGetEvents>;
+	export let events: Event[] = [];
 </script>
 
 <section class="bg-surface-50 dark:bg-surface-900 py-24 sm:py-32">
@@ -21,38 +20,29 @@
 				{/if}
 			</div>
 			<ol class="mt-12 lg:mt-20 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
-				{#await e}
-					<Placeholder />
-				{:then req}
-					{#if req.events.length > 0}
-						{#each req.events as event, i}
-							<FadeIn i={i * 150}>
-								<a href={`/events/${event.slug.current}`}>
-									<li class="py-4 sm:flex hover:bg-surface-200 dark:hover:bg-surface-800">
-										<time datetime={fromISOtoDatetime(event.date.toString())} class="w-28 flex-none"
-											>{formatDate(event.date, {
-												weekday: 'short',
-												day: 'numeric',
-												month: 'short'
-											})}</time
-										>
-										<p class="mt-2 flex-auto font-semibold text-gray-900 sm:mt-0">
-											{event.title}
-										</p>
-										<p class="flex-none sm:ml-6">
-											<time datetime={fromISOtoDatetime(event.date.toString())}
-												>{fromISOtoTime(event.date)}</time
-											>
-										</p>
-									</li>
-								</a>
-							</FadeIn>{/each}
-					{:else}
-						<p>No events were found. Please check back again later.</p>
-					{/if}
-				{:catch error}
-					<p class="text-sm leading-6 text-error-500">An error occured when fetching the events.</p>
-				{/await}
+				{#each events as event, i}
+					<FadeIn i={i * 150}>
+						<a href={`/events/${event.slug.current}`}>
+							<li class="py-4 sm:flex hover:bg-surface-200 dark:hover:bg-surface-800">
+								<time datetime={fromISOtoDatetime(event.date.toString())} class="w-28 flex-none"
+									>{formatDate(event.date, {
+										weekday: 'short',
+										day: 'numeric',
+										month: 'short'
+									})}</time
+								>
+								<p class="mt-2 flex-auto font-semibold text-gray-900 sm:mt-0">
+									{event.title}
+								</p>
+								<p class="flex-none sm:ml-6">
+									<time datetime={fromISOtoDatetime(event.date.toString())}
+										>{fromISOtoTime(event.date)}</time
+									>
+								</p>
+							</li>
+						</a>
+					</FadeIn>
+				{/each}
 			</ol>
 		</div>
 	</div>

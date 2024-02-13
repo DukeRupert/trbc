@@ -11,7 +11,7 @@ export const getEvents = `
       content[],
       "excerpt": array::join(string::split((pt::text(content)), "")[0..255], "") + "..."
     },
-    "total": count(*[_type == "event"])
+    "total": count(*[_type == "event" && date > now()])
   }
 `;
 

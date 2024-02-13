@@ -17,7 +17,7 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		{#if blocks}
 			<PortableText data={blocks} />
-			<Posts p={data.streamed.p} />
+			<Posts posts={data.posts} />
 		{:else}
 			<UnderConstruction />
 		{/if}

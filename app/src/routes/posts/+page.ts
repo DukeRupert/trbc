@@ -1,5 +1,6 @@
 import type { PageLoad } from './$types';
 import S from '$lib/sanity';
+
 export const load: PageLoad = async ({ url }) => {
 	// Fetch page data
 	const { pathname } = url;
@@ -11,18 +12,11 @@ export const load: PageLoad = async ({ url }) => {
 
 	// Fetch posts
 	console.log('Fetching posts');
-	const p = S.getPosts(min, max);
+	const { posts } = await S.getPosts(min, max);
 
-	// const promise = new Promise((resolve, reject) => {
-	// 	setTimeout(() => {
-	// 		resolve({ events: [], posts: [], total: 0 });
-	// 	}, 50);
-	// });
 
 	return {
 		page: data,
-		streamed: {
-			p
-		}
+		posts
 	};
 };

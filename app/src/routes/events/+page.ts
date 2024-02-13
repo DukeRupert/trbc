@@ -9,12 +9,10 @@ export const load: PageLoad = async ({ url }) => {
 	const max = parseInt(url.searchParams.get('max') ?? '10');
 
 	console.log('Fetching events');
-	const e = S.getUpcomingEvents(max);
-
+	const { events } = await S.getUpcomingEvents(max);
+	
 	return {
 		page: data,
-		streamed: {
-			e
-		}
+		events
 	};
 };
